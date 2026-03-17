@@ -1,45 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jandel Escalera - Full Stack Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <title>Jandel L. Escalera | .NET Full-Stack Developer</title>
+    <meta name="description"
+        content=".NET Full-Stack Developer specializing in ASP.NET Core, .NET MAUI, and enterprise solutions for LGU digital transformation.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="head.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <base target="_blank">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">Jandel Escalera</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+
+<body
+    class="bg-darker text-slate-300 font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-slate-800/50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-mono font-bold text-sm">&lt;/&gt;</span>
+                    </div>
+                    <span class="font-mono font-bold text-white text-lg tracking-tight">Jandel<span
+                            class="text-primary">.dev</span></span>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">About</a>
+                    <a href="#tech-stack" class="text-sm font-medium hover:text-primary transition-colors">Tech
+                        Stack</a>
+                    <a href="#projects" class="text-sm font-medium hover:text-primary transition-colors">Projects</a>
+                    <a href="#experience"
+                        class="text-sm font-medium hover:text-primary transition-colors">Experience</a>
+                    <a href="#lgu" class="text-sm font-medium hover:text-primary transition-colors">LGU Expertise</a>
+                    <a href="#contact"
+                        class="px-4 py-2 bg-primary/10 text-primary border border-primary/50 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Contact</a>
+                </div>
+
+                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-slate-800">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#about" class="block px-3 py-2 text-base font-medium hover:text-primary">About</a>
+                <a href="#tech-stack" class="block px-3 py-2 text-base font-medium hover:text-primary">Tech Stack</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium hover:text-primary">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium hover:text-primary">Experience</a>
+                <a href="#lgu" class="block px-3 py-2 text-base font-medium hover:text-primary">LGU Expertise</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <div class="hero-content">
-                        <h1>Hi, I'm <span class="text-warning">Jandel Escalera</span></h1>
-                        <p class="lead"><strong>Full Stack Developer</strong> | Software Engineer</p>
-                        <p class="subtitle">Building dynamic, scalable web and mobile applications with ASP.NET Core, .NET MAUI, and modern technologies</p>
-                        <div>
-                            <a href="#projects" class="btn-primary-custom">View My Work</a>
-                            <a href="#contact" class="btn-secondary-custom">Get In Touch</a>
+    <!-- Hero Section -->
+    <section id="about"
+        class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden grid-pattern">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow"
+                style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 animate-slide-up">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-mono">
+                        <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                        Currently Employed at ITDC Systems
+                    </div>
+
+                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+                        <span class="block text-slate-400 text-2xl md:text-3xl font-mono mb-2 font-normal">Hello,
+                            I'm</span>
+                        Jandel L. Escalera
+                    </h1>
+
+                    <div class="h-12 md:h-16">
+                        <span class="text-2xl md:text-4xl font-mono gradient-text typing-text" id="typing-text"></span>
+                    </div>
+
+                    <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
+                        Results-driven <span class="text-white font-semibold">.NET Full-Stack Developer</span>
+                        specializing in enterprise web applications and cross-platform mobile solutions. Building
+                        scalable systems that drive digital transformation for Local Government Units and enterprise
+                        clients.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projects"
+                            class="px-8 py-4 bg-primary hover:bg-blue-600 text-white rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center gap-2">
+                            View Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#contact"
+                            class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold transition-all border border-slate-700 flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+                        </a>
+                    </div>
+
+                    <div class="flex items-center gap-6 pt-4">
+                        <a href="https://github.com/Jandelocks" target="_blank"
+                            class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
+                            class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                        <a href="mailto:jandeleido@gmail.com" class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </a>
+                        <div class="h-6 w-px bg-slate-700"></div>
+                        <span class="text-sm text-slate-500 font-mono">BSIT Graduate 2021-2025</span>
+                    </div>
+                </div>
+
+                <!-- Code Window -->
+                <div class="hidden lg:block animate-fade-in" style="animation-delay: 0.3s;">
+                    <div
+                        class="bg-card rounded-xl border border-slate-700 shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+                        <div class="bg-slate-900 px-4 py-3 border-b border-slate-700 flex items-center gap-2">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="ml-4 text-xs text-slate-500 font-mono">Developer.cs</div>
+                        </div>
+                        <div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+                            <div class="code-line"><span class="code-keyword">public class</span> <span
+                                    class="code-class">FullStackDeveloper</span> : <span
+                                    class="code-class">IInnovator</span></div>
+                            <div class="code-line">{</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Name => <span
+                                    class="code-string">"Jandel L. Escalera"</span>;</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Role => <span
+                                    class="code-string">".NET Specialist"</span>;</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Company => <span
+                                    class="code-string">"ITDC Systems"</span>;</div>
+                            <div class="code-line pl-4"></div>
+                            <div class="code-line pl-4"><span class="code-keyword">public</span> <span
+                                    class="code-class">TechStack</span> GetExpertise()</div>
+                            <div class="code-line pl-4">{</div>
+                            <div class="code-line pl-8"><span class="code-keyword">return new</span> <span
+                                    class="code-class">TechStack</span></div>
+                            <div class="code-line pl-8">{</div>
+                            <div class="code-line pl-12">Backend = <span class="code-string">"ASP.NET Core MVC"</span>,
+                            </div>
+                            <div class="code-line pl-12">Mobile = <span class="code-string">".NET MAUI"</span>,</div>
+                            <div class="code-line pl-12">Database = <span class="code-string">"SQL Server/MySQL"</span>,
+                            </div>
+                            <div class="code-line pl-12">Frontend = <span class="code-string">"Bootstrap/jQuery"</span>
+                            </div>
+                            <div class="code-line pl-8">};</div>
+                            <div class="code-line pl-4">}</div>
+                            <div class="code-line pl-4"></div>
+                            <div class="code-line pl-4"><span class="code-comment">// Currently optimizing LGU
+                                    systems</span></div>
+                            <div class="code-line pl-4"><span class="code-keyword">public void</span> <span
+                                    class="code-function">BuildSolutions</span>() => <span
+                                    class="code-function">ImpactCommunities</span>();</div>
+                            <div class="code-line">}</div>
                         </div>
                     </div>
                 </div>
@@ -47,455 +191,786 @@
         </div>
     </section>
 
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 text-center">
-                    <div class="fade-in">
-                        <img src="img/user.png" alt="Jandel Escalera Profile" class="img-fluid about-img">
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="py-24 bg-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technical Arsenal</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Technologies I leverage to build robust, scalable enterprise
+                    solutions</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Backend -->
+                <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
+                    <div
+                        class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
+                        <i data-lucide="server" class="w-6 h-6 text-blue-400"></i>
                     </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Backend Development</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>ASP.NET Core MVC</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>C#
+                            & .NET Ecosystem</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>RESTful API Development</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Web API Integration</li>
+                    </ul>
                 </div>
-                <div class="col-lg-6">
-                    <div class="fade-in">
-                        <p class="lead">
-                            I am a <strong>Bachelor of Science in Information Technology (BSIT)</strong> graduate from Mindoro State University with a strong passion for programming and web development.
+
+                <!-- Mobile -->
+                <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
+                    <div
+                        class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+                        <i data-lucide="smartphone" class="w-6 h-6 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Mobile Development</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>.NET MAUI</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>Cross-Platform Apps</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>iOS & Android</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>Mobile-First Design</li>
+                    </ul>
+                </div>
+
+                <!-- Database -->
+                <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
+                    <div
+                        class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors">
+                        <i data-lucide="database" class="w-6 h-6 text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Database Management</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Microsoft SQL Server</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>MySQL</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Database Design</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Query Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Frontend -->
+                <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
+                    <div
+                        class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+                        <i data-lucide="layout" class="w-6 h-6 text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Frontend Stack</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>HTML5 & CSS3</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Bootstrap</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>JavaScript & jQuery</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Responsive Design</li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
+                    <div
+                        class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+                        <i data-lucide="wrench" class="w-6 h-6 text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Development Tools</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Visual Studio / VS Code</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Git & GitHub</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>MySQL Workbench</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>SSMS</li>
+                    </ul>
+                </div>
+
+                <!-- QA & Optimization -->
+                <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
+                    <div
+                        class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-red-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">QA & Optimization</h3>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Quality Assurance Testing</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>UI/UX Optimization</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Web
+                            Debugging</li>
+                        <li class="flex items-center gap-2"><span
+                                class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Performance Tuning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-24 bg-darker relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Featured Projects</h2>
+                    <p class="text-slate-400">
+                        Professional and personal projects showcasing full-stack development, mobile solutions, and
+                        system design
+                    </p>
+                </div>
+
+                <div
+                    class="px-4 py-2 bg-slate-800 rounded-lg border border-slate-700 text-sm text-slate-400 flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    <span>Includes client & personal work</span>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Project 1 Placeholder -->
+                <div
+                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div
+                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+
+                        <!-- Image -->
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=ALERT+Pinamalayan"
+                            alt="ALERT Pinamalayan Preview"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">
+                                Active Project
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                            ALERT Pinamalayan (MDRRMO)
+                        </h3>
+
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                            A full-stack disaster response and incident management system designed for citizens and
+                            responders.
+                            Enables real-time reporting, emergency coordination, and centralized monitoring.
                         </p>
-                        <p>
-                            Currently working as a <strong>Software Engineer at ITDC Systems Development</strong>, I specialize in building full-stack web applications and cross-platform mobile solutions. I have hands-on experience with <strong>ASP.NET Core MVC, .NET MAUI, C#, PHP (CodeIgniter), and MySQL</strong>, contributing to real-world enterprise projects for local government units and private clients.
-                        </p>
-                        <p>
-                            I'm a flexible and motivated learner who enjoys tackling new challenges, optimizing system performance, and collaborating with teams to deliver scalable, user-friendly solutions.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="experience" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="experience-card fade-in">
-                        <h4>Software Engineer</h4>
-                        <div class="company">ITDC Systems Development – Calapan City, Oriental Mindoro</div>
-                        <div class="date"><i class="far fa-calendar-alt me-2"></i>May 2025 – Present</div>
-                        <ul>
-                            <li>Contribute to the development and maintenance of web and mobile applications, including full-stack features</li>
-                            <li>Work on cross-platform .NET MAUI applications integrated with ASP.NET backend via Web API</li>
-                            <li>Implement new features, fix bugs, and optimize performance for client projects</li>
-                            <li>Provide client support and training for deployed systems</li>
-                            <li>Collaborate with team members on system design, project planning, and QA testing</li>
-                            <li>Participate in real-world enterprise projects for local government units and private clients</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-card fade-in">
-                        <h4>Full Stack Software Developer Intern</h4>
-                        <div class="company">ITDC Systems Development – Calapan City, Oriental Mindoro</div>
-                        <div class="date"><i class="far fa-calendar-alt me-2"></i>February – May 2025</div>
-                        <ul>
-                            <li>Completed a 3-month internship as a full-stack web and application developer</li>
-                            <li>Developed an Incident Management System using ASP.NET Core MVC (backend), CSS & Bootstrap (frontend), and SSMS (database)</li>
-                            <li>Performed Quality Assurance (QA) testing on real-world projects and assisted in debugging</li>
-                            <li>Strengthened technical and practical IT skills through hands-on project experience</li>
-                            <li>Learned team collaboration, brainstorming, and creating scalable projects</li>
-                            <li>Demonstrated strong potential, leading to employment offer after internship</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category fade-in">
-                        <h5><i class="fas fa-code"></i>Programming Languages</h5>
-                        <div>
-                            <span class="skill-tag">C#</span>
-                            <span class="skill-tag">PHP</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category fade-in">
-                        <h5><i class="fas fa-layer-group"></i>Development & Frameworks</h5>
-                        <div>
-                            <span class="skill-tag">ASP.NET Core MVC</span>
-                            <span class="skill-tag">.NET MAUI</span>
-                            <span class="skill-tag">CodeIgniter 4</span>
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">Bootstrap</span>
-                            <span class="skill-tag">jQuery</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category fade-in">
-                        <h5><i class="fas fa-database"></i>Database Management</h5>
-                        <div>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">Microsoft SQL Server (SSMS)</span>
-                            <span class="skill-tag">Database Design</span>
-                            <span class="skill-tag">Database Optimization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category fade-in">
-                        <h5><i class="fas fa-tools"></i>Tools & Platforms</h5>
-                        <div>
-                            <span class="skill-tag">Visual Studio</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">Git/GitHub</span>
-                            <span class="skill-tag">MySQL Workbench</span>
-                            <span class="skill-tag">RESTful API</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category fade-in">
-                        <h5><i class="fas fa-check-circle"></i>QA & Optimization</h5>
-                        <div>
-                            <span class="skill-tag">Quality Assurance Testing</span>
-                            <span class="skill-tag">UI/UX Optimization</span>
-                            <span class="skill-tag">Web Debugging</span>
-                            <span class="skill-tag">Performance Tuning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 mb-4">
-                    <div class="skill-category fade-in">
-                        <h5><i class="fas fa-laptop"></i>Hardware & IT Support</h5>
-                        <div>
-                            <span class="skill-tag">PC Assembly</span>
-                            <span class="skill-tag">Hardware Diagnostics</span>
-                            <span class="skill-tag">Troubleshooting</span>
-                            <span class="skill-tag">Networking Setup</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                            <i class="fas fa-cash-register"></i>
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>PKPOS (Pocket King Point of Sale)</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • C# • MySQL</div>
-                            <p>Custom POS system for billiards and restaurant operations featuring promo management, sales tracking, and comprehensive report filtering capabilities.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                            <img src="img/ArisPinamalayan.png" alt="ARIS Pinamalayan Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>ARIS Pinamalayan (MDRRMO)</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • .NET MAUI • MySQL</div>
-                            <p>Full-stack web and mobile disaster response system for citizens and responders. Contributed bug fixes, feature enhancements, and UI improvements.</p>
-                            <div class="portfolio-buttons">
-                                <a href="https://arispinamalayan.com/" target="_blank" class="btn btn-sm btn-outline-primary">View Live</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/City Kios.png" alt="KiosNeo Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>KiosNeo (Batangas City)</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • C# • MySQL</div>
-                            <p>Dynamic citizen portal and admin access kiosk system for city services. Implemented bug fixes and added new features for enhanced functionality.</p>
-                            <div class="portfolio-buttons">
-                                <a href="https://neo.itdcsystems.com/" target="_blank" class="btn btn-sm btn-outline-primary">View Live</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/Roxas.jpg" alt="Roxas Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>Roxas Website & CMS</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • C# • MySQL</div>
-                            <p>Developed and maintained LGU website with content management system. Implemented new features, performed bug fixes, and provided client training.</p>
-                            <div class="portfolio-buttons">
-                                <a href="https://roxas.itdcsystems.com/" target="_blank" class="btn btn-sm btn-outline-primary">View Live</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/LGUCore.png" alt="LGUCore Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>LGUCore & LGUConnect</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • C# • MySQL</div>
-                            <p>Built web applications for local government units and citizens, including feedback requests and surveys. Contributed to system enhancements and UI/UX optimization.</p>
-                            <div class="portfolio-buttons">
-                                <a href="https://core.itdcsystems.com/" target="_blank" class="btn btn-sm btn-outline-primary">View Live</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/NovaOpsEcho.png" alt="NovaOpsEcho Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>Roxas Emergency Response (NovaOpsEcho)</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • C# • MySQL</div>
-                            <p>Emergency response management system with real-time incident management and team dispatch coordination. Handled feature additions, bug fixing, and QA.</p>
-                            <div class="portfolio-buttons">
-                                <a href="https://cares.roxasormin.com/" target="_blank" class="btn btn-sm btn-outline-primary">View Live</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/LoanTayo.jpg" alt="LoanTayo Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>LoanTayo (Personal Project)</h5>
-                            <div class="tech-stack">ASP.NET Core MVC • C# • MySQL</div>
-                            <p>Full-stack loan management system with loan tracking, interest calculation, and comprehensive reporting features.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/Elifesure.png" alt="Elifesure MIMAROPA Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>ELIFESURE MIMAROPA (Capstone)</h5>
-                            <div class="tech-stack">PHP • CodeIgniter 4 • MySQL</div>
-                            <p>Insurance and agent recruitment system developed as a capstone project. Full-stack web platform with comprehensive insurance management features.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="portfolio-item fade-in">
-                        <div class="portfolio-img">
-                             <img src="img/SBC.png" alt="ERPNext Screenshot">
-                        </div>
-                        <div class="portfolio-content">
-                            <h5>ERPNext Customization (SBC)</h5>
-                            <div class="tech-stack">ERPNext • Python • Custom Scripts</div>
-                            <p>Configured ERP system for Smith Brothers Corporation with custom scripts and enhancements for accounting operations and business process management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact py-5">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="contact-info fade-in">
-                        <i class="fas fa-envelope"></i>
-                        <h5>Email</h5>
-                        <p>jandeleido@gmail.com</p>
-                    </div>
-                    <div class="contact-info fade-in">
-                        <i class="fas fa-phone"></i>
-                        <h5>Phone</h5>
-                        <p>+63 994 542 8697</p>
-                    </div>
-                    <div class="contact-info fade-in">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h5>Location</h5>
-                        <p>Calapan City, Oriental Mindoro, Philippines</p>
-                    </div>
-                    <div class="contact-info fade-in">
-                        <i class="fas fa-award"></i>
-                        <h5>Certification</h5>
-                        <p>Programming Java NC III<br><small>TESDA Certified - November 2024</small></p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <form class="fade-in" id="contactForm">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
+                                    <p class="text-sm text-slate-300">
+                                        ASP.NET Core MVC • .NET MAUI • REST API • SSMS
+                                    </p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" placeholder="Your Email" required>
+
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
+                                    <p class="text-sm text-slate-300">
+                                        Real-time incident reporting • Responder dispatch system • Mobile citizen app •
+                                        Admin dashboard • Notification system
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+
+                        <div class="pt-4 border-t border-slate-800">
+                            <span class="text-xs text-primary font-mono">
+                                Contributions: Bug fixes • Feature enhancements • UI improvements • API integration • QA
+                                testing
+                            </span>
                         </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Project 2 Placeholder -->
+                <div
+                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div
+                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+
+                        <!-- Image -->
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=Travel+Oriental+Mindoro"
+                            alt="Travel Oriental Mindoro Preview"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">
+                                Active Project
+                            </span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-                    </form>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">
+                            Travel Oriental Mindoro
+                        </h3>
+
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                            A tourism platform showcasing destinations, local attractions, and travel information in
+                            Oriental Mindoro.
+                            Designed to improve accessibility and user engagement through a modern web and mobile
+                            experience.
+                        </p>
+
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
+                                    <p class="text-sm text-slate-300">
+                                        ASP.NET MVC • .NET MAUI • JavaScript • SSMS
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
+                                    <p class="text-sm text-slate-300">
+                                        Destination listings • Search & filtering • Mobile-friendly UI • Content
+                                        management • Interactive navigation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800">
+                            <span class="text-xs text-secondary font-mono">
+                                Contributions: Feature development • Bug fixing • UI/UX improvements • Mobile app
+                                enhancements • Performance optimization
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 Placeholder -->
+                <div
+                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div
+                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+
+                        <!-- Image -->
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=LoanTayo+System"
+                            alt="LoanTayo Preview"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-purple-400 rounded-full border border-slate-700">
+                                Personal Project
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                            LoanTayo - Loan Management System
+                        </h3>
+
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                            A full-stack loan management system designed to handle loan processing, payment tracking,
+                            and financial reporting. Built to streamline lending operations with automated computations
+                            and role-based access control.
+                        </p>
+
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
+                                    <p class="text-sm text-slate-300">
+                                        ASP.NET Core MVC • C# • JavaScript • SSMS
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-2">
+                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
+                                    <p class="text-sm text-slate-300">
+                                        Loan application & approval • Interest calculation • Payment tracking •
+                                        Role-based access • Reports & analytics • Notification system
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800">
+                            <span class="text-xs text-purple-400 font-mono">
+                                Contributions: Full-stack development • System design • Business logic implementation •
+                                Database design • UI/UX development
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                    <div class="text-3xl font-bold gradient-text mb-1">15+</div>
+                    <div class="text-sm text-slate-400">Projects Delivered</div>
+                </div>
+                <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                    <div class="text-3xl font-bold gradient-text mb-1">3</div>
+                    <div class="text-sm text-slate-400">Mobile Apps</div>
+                </div>
+                <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                    <div class="text-3xl font-bold gradient-text mb-1">LGU</div>
+                    <div class="text-sm text-slate-400">Gov't Solutions</div>
+                </div>
+                <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                    <div class="text-3xl font-bold gradient-text mb-1">1yr+</div>
+                    <div class="text-sm text-slate-400">Professional Exp.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="social-links mb-3">
-                <a href="https://github.com/Jandelocks" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://escalerajandel.vercel.app/" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
-                <a href="mailto:jandeleido@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 bg-dark relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Professional Journey</h2>
+                <p class="text-slate-400">Growth from intern to software engineer</p>
             </div>
-            <p>&copy; 2025 Jandel L. Escalera. All rights reserved.</p>
-            <p class="mt-2"><small>Full Stack Developer | Software Engineer | BSIT Graduate</small></p>
+
+            <div class="relative timeline-line pl-8 md:pl-0 space-y-12">
+                <!-- Current Position -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center group">
+                    <div class="hidden md:block text-right pr-8">
+                        <span class="text-primary font-mono text-sm">May 2025 - Present</span>
+                        <div
+                            class="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs border border-green-500/20">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                            Current
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-dark shadow-lg shadow-primary/50 z-10">
+                    </div>
+
+                    <div class="md:pl-8">
+                        <div class="bg-card p-6 rounded-xl border border-slate-800 hover-card">
+                            <div class="md:hidden mb-4">
+                                <span class="text-primary font-mono text-sm block mb-2">May 2025 - Present</span>
+                                <div
+                                    class="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs border border-green-500/20">
+                                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                                    Current
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-1">Software Engineer</h3>
+                            <p class="text-slate-400 text-sm mb-4 font-mono">ITDC Systems Development</p>
+
+                            <ul class="space-y-2 text-slate-300 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                                    <span>Develop and maintain web and mobile applications with full-stack
+                                        features</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                                    <span>Build cross-platform .NET MAUI applications integrated with ASP.NET backend
+                                        via Web API</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                                    <span>Implement new features, fix bugs, and optimize performance for client
+                                        projects</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                                    <span>Provide client support and training for deployed systems</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
+                                    <span>Collaborate on system design, project planning, and QA testing</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internship -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center group">
+                    <div class="md:text-right md:pr-8 md:order-1 order-2">
+                        <div class="bg-card p-6 rounded-xl border border-slate-800 hover-card">
+                            <div class="md:hidden mb-4">
+                                <span class="text-secondary font-mono text-sm block">Feb 2025 - May 2025</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-1">Full-Stack Developer Intern</h3>
+                            <p class="text-slate-400 text-sm mb-4 font-mono">ITDC Systems Development</p>
+
+                            <ul class="space-y-2 text-slate-300 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
+                                    <span>Completed 3-month internship as full-stack web and application
+                                        developer</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
+                                    <span>Developed Incident Management System using ASP.NET Core MVC, CSS/Bootstrap,
+                                        SSMS</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
+                                    <span>Performed QA testing on real-world projects and assisted in debugging</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i data-lucide="chevron-right"
+                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
+                                    <span class="text-secondary font-medium">Led to employment offer after
+                                        internship</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-dark shadow-lg shadow-secondary/50 z-10">
+                    </div>
+
+                    <div class="hidden md:block md:pl-8 md:order-2 order-1">
+                        <span class="text-secondary font-mono text-sm">Feb 2025 - May 2025</span>
+                    </div>
+
+                    <div class="md:hidden order-1 mb-4 pl-8">
+                        <span class="text-secondary font-mono text-sm">Feb 2025 - May 2025</span>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center group">
+                    <div class="hidden md:block text-right pr-8">
+                        <span class="text-purple-400 font-mono text-sm">2021 - 2025</span>
+                    </div>
+
+                    <div
+                        class="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-purple-400 rounded-full border-4 border-dark shadow-lg shadow-purple-400/50 z-10">
+                    </div>
+
+                    <div class="md:pl-8">
+                        <div class="bg-card p-6 rounded-xl border border-slate-800 hover-card">
+                            <div class="md:hidden mb-4">
+                                <span class="text-purple-400 font-mono text-sm block">2021 - 2025</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold text-white mb-1">BS Information Technology</h3>
+                            <p class="text-slate-400 text-sm mb-2 font-mono">Mindoro State University</p>
+                            <p class="text-slate-500 text-sm">Bachelor of Science in Information Technology graduate
+                                with strong foundation in software development and system architecture.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LGU Expertise Section -->
+    <section id="lgu" class="py-24 bg-darker relative overflow-hidden">
+        <!-- Background Accent -->
+        <div
+            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-mono mb-6">
+                        <i data-lucide="building-2" class="w-4 h-4"></i>
+                        Specialized Sector
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Government Digital Transformation</h2>
+
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        Specialized in Local Government Unit (LGU) digital solutions, delivering enterprise-grade
+                        systems that modernize public services and enhance citizen engagement.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="siren" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Emergency Response Coordination</h4>
+                                <p class="text-slate-400 text-sm">Real-time incident management and team dispatch
+                                    coordination platforms</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="monitor" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Citizen Service Portals</h4>
+                                <p class="text-slate-400 text-sm">Kiosk-integrated systems for streamlined public
+                                    service delivery</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="file-text" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Content Management Systems</h4>
+                                <p class="text-slate-400 text-sm">Public information platforms with intuitive admin
+                                    interfaces</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shield-alert" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Disaster Risk Reduction</h4>
+                                <p class="text-slate-400 text-sm">Management systems for MDRRMO operations and citizen
+                                    safety</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                        <p class="text-sm text-slate-400 flex items-center gap-2">
+                            <i data-lucide="lock" class="w-4 h-4 text-slate-500"></i>
+                            Specific client names and project details available upon request
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4 mt-8">
+                            <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                                <i data-lucide="users" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                                <div class="text-2xl font-bold text-white">LGU</div>
+                                <div class="text-xs text-slate-500">Local Gov't Units</div>
+                            </div>
+                            <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                                <i data-lucide="smartphone" class="w-8 h-8 text-purple-400 mx-auto mb-2"></i>
+                                <div class="text-2xl font-bold text-white">Mobile</div>
+                                <div class="text-xs text-slate-500">Cross-Platform</div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                                <i data-lucide="globe" class="w-8 h-8 text-green-400 mx-auto mb-2"></i>
+                                <div class="text-2xl font-bold text-white">Web</div>
+                                <div class="text-xs text-slate-500">Enterprise Apps</div>
+                            </div>
+                            <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
+                                <i data-lucide="database" class="w-8 h-8 text-orange-400 mx-auto mb-2"></i>
+                                <div class="text-2xl font-bold text-white">Data</div>
+                                <div class="text-xs text-slate-500">Secure Storage</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Skills -->
+    <section class="py-24 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i data-lucide="award" class="w-6 h-6 text-yellow-400"></i>
+                        Certifications
+                    </h3>
+                    <div class="space-y-4">
+                        <div
+                            class="bg-card p-6 rounded-xl border border-slate-800 hover:border-yellow-400/50 transition-all hover-card">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-white font-semibold">Programming Java NCIII</h4>
+                                <span class="text-xs text-slate-500 font-mono">Nov 2024</span>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-2">TESDA - Technical Education and Skills Development
+                                Authority</p>
+                            <div class="flex items-center gap-2 text-xs text-yellow-400">
+                                <i data-lucide="check-circle" class="w-3 h-3"></i>
+                                <span>Certificate of Completion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i data-lucide="languages" class="w-6 h-6 text-cyan-400"></i>
+                        Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-card p-6 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">Filipino</span>
+                                <span
+                                    class="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20">Native
+                                    Fluency</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-cyan-400 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-card p-6 rounded-xl border border-slate-800">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-white font-medium">English</span>
+                                <span
+                                    class="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded-full border border-slate-600">Basic
+                                    (Verbal & Written)</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-slate-500 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-darker relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's Build Something Together</h2>
+            <p class="text-slate-400 mb-12 max-w-2xl mx-auto">Open to opportunities in enterprise development, LGU
+                digital solutions, and cross-platform application projects.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <a href="mailto:jandeleido@gmail.com"
+                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i data-lucide="mail" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h4 class="text-white font-medium text-sm mb-1">Email</h4>
+                    <p class="text-slate-400 text-xs break-all">jandeleido@gmail.com</p>
+                </a>
+
+                <a href="tel:+639945428697"
+                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i data-lucide="phone" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h4 class="text-white font-medium text-sm mb-1">Phone</h4>
+                    <p class="text-slate-400 text-xs">+(63) 994 542 8697</p>
+                </a>
+
+                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
+                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h4 class="text-white font-medium text-sm mb-1">LinkedIn</h4>
+                    <p class="text-slate-400 text-xs">Connect Professional</p>
+                </a>
+
+                <a href="https://github.com/Jandelocks" target="_blank"
+                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div
+                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i data-lucide="github" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h4 class="text-white font-medium text-sm mb-1">GitHub</h4>
+                    <p class="text-slate-400 text-xs">View Code</p>
+                </a>
+            </div>
+
+            <div
+                class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 rounded-full border border-slate-700 text-slate-400 text-sm">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Calapan City, Oriental Mindoro, Philippines</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-slate-800 py-8">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded flex items-center justify-center">
+                    <span class="text-white font-mono font-bold text-xs">&lt;/&gt;</span>
+                </div>
+                <span class="text-slate-400 text-sm">© 2025 Jandel L. Escalera. All rights reserved.</span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://escalerajandel.vercel.app/" target="_blank"
+                    class="text-slate-400 hover:text-white text-sm transition-colors flex items-center gap-1">
+                    Portfolio <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+                <a href="https://github.com/Jandelocks" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-8 right-8 bg-primary hover:bg-blue-600 text-white p-3 rounded-full shadow-lg shadow-primary/30 transition-all transform translate-y-20 opacity-0 z-50">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
 
-        // Fade in animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            }
-        });
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
-            this.reset();
-        });
-
-        // Typing effect
-        function typeWriter(element, speed = 100) {
-            const fullText = "Hi, I'm ";
-            const name = "Jandel Escalera";
-            
-            function typeFullText() {
-                element.innerHTML = '';
-                let i = 0;
-                
-                function typeHello() {
-                    if (i < fullText.length) {
-                        element.innerHTML = fullText.substring(0, i + 1);
-                        i++;
-                        setTimeout(typeHello, speed);
-                    } else {
-                        element.innerHTML = fullText + '<span class="text-warning"></span>';
-                        const nameSpan = element.querySelector('.text-warning');
-                        let j = 0;
-                        
-                        function typeName() {
-                            if (j < name.length) {
-                                nameSpan.textContent += name.charAt(j);
-                                j++;
-                                setTimeout(typeName, speed);
-                            } else {
-                                setTimeout(typeFullText, 3000);
-                            }
-                        }
-                        typeName();
-                    }
-                }
-                typeHello();
-            }
-            
-            typeFullText();
-        }
-
-        // Initialize typing effect
-        window.addEventListener('load', function() {
-            const heroTitle = document.querySelector('.hero h1');
-            setTimeout(() => {
-                typeWriter(heroTitle, 80);
-            }, 1000);
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
+
 </html>
