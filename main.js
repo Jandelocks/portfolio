@@ -1,7 +1,38 @@
-// Initialize Lucide Icons
-lucide.createIcons();
+// =============================================
+// THEME TOGGLE (Light / Dark Mode)
+// =============================================
+const html = document.documentElement;
 
-// Typing Effect
+function applyTheme(theme) {
+    if (theme === 'light') {
+        html.classList.add('light');
+    } else {
+        html.classList.remove('light');
+    }
+    // Update navbar scroll bg
+    updateNavbarBg();
+}
+
+function toggleTheme() {
+    const isLight = html.classList.contains('light');
+    const next = isLight ? 'dark' : 'light';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+}
+
+// On load: apply saved theme or system preference
+(function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+        applyTheme(saved);
+    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        applyTheme('light');
+    }
+})();
+
+// =============================================
+// TYPING EFFECT
+// =============================================
 const roles = [
     ".NET Full-Stack Developer",
     "ASP.NET Core Specialist",
@@ -38,33 +69,43 @@ function typeEffect() {
     setTimeout(typeEffect, typeSpeed);
 }
 
-// Start typing effect
 typeEffect();
 
-// Mobile Menu Toggle
+// =============================================
+// MOBILE MENU TOGGLE
+// =============================================
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     menu.classList.toggle('hidden');
 }
 
-// Navbar Scroll Effect
+// =============================================
+// NAVBAR SCROLL EFFECT
+// =============================================
 let lastScroll = 0;
 const navbar = document.getElementById('navbar');
 const backToTop = document.getElementById('backToTop');
 
+function updateNavbarBg() {
+    const isLight = html.classList.contains('light');
+    if (window.pageYOffset > 50) {
+        navbar.classList.add('shadow-lg');
+        if (isLight) {
+            navbar.style.backgroundColor = 'rgba(248,250,252,0.95)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(2,6,23,0.95)';
+        }
+    } else {
+        navbar.classList.remove('shadow-lg');
+        navbar.style.backgroundColor = '';
+    }
+}
+
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
 
-    // Navbar background
-    if (currentScroll > 50) {
-        navbar.classList.add('shadow-lg');
-        navbar.classList.add('bg-slate-900/95');
-    } else {
-        navbar.classList.remove('shadow-lg');
-        navbar.classList.remove('bg-slate-900/95');
-    }
+    updateNavbarBg();
 
-    // Back to top button
     if (currentScroll > 500) {
         backToTop.classList.remove('translate-y-20', 'opacity-0');
     } else {
@@ -74,23 +115,23 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Smooth scroll for anchor links
+// =============================================
+// SMOOTH SCROLL
+// =============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            // Close mobile menu if open
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             document.getElementById('mobile-menu').classList.add('hidden');
         }
     });
 });
 
-// Intersection Observer for fade-in animations
+// =============================================
+// INTERSECTION OBSERVER (Fade-in)
+// =============================================
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -105,8 +146,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements
 document.querySelectorAll('.hover-card').forEach((el) => {
     el.style.opacity = '0';
     observer.observe(el);
 });
+
+// Footer year
+document.getElementById('footer-year').textContent =
+    `© ${new Date().getFullYear()} Jandel L. Escalera. All rights reserved.`;

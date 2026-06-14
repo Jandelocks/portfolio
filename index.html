@@ -20,46 +20,45 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script src="head.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <base target="_blank">
 </head>
 
-<body
-    class="bg-darker text-slate-300 font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden">
+<body class="text-slate-300 font-sans antialiased selection:bg-primary selection:text-white overflow-x-hidden" style="background-color: var(--bg-darker);">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass border-b border-slate-800/50 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div
-                        class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                         <span class="text-white font-mono font-bold text-sm">&lt;/&gt;</span>
                     </div>
-                    <span class="font-mono font-bold text-white text-lg tracking-tight">Jandel<span
-                            class="text-primary">.dev</span></span>
+                    <span class="font-mono font-bold text-white text-lg tracking-tight">Jandel<span class="text-primary">.dev</span></span>
                 </div>
 
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">About</a>
-                    <a href="#tech-stack" class="text-sm font-medium hover:text-primary transition-colors">Tech
-                        Stack</a>
+                    <a href="#tech-stack" class="text-sm font-medium hover:text-primary transition-colors">Tech Stack</a>
                     <a href="#projects" class="text-sm font-medium hover:text-primary transition-colors">Projects</a>
-                    <a href="#experience"
-                        class="text-sm font-medium hover:text-primary transition-colors">Experience</a>
+                    <a href="#experience" class="text-sm font-medium hover:text-primary transition-colors">Experience</a>
                     <a href="#lgu" class="text-sm font-medium hover:text-primary transition-colors">LGU Expertise</a>
-                    <a href="#contact"
-                        class="px-4 py-2 bg-primary/10 text-primary border border-primary/50 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Contact</a>
+                    <a href="#contact" class="px-4 py-2 bg-primary/10 text-primary border border-primary/50 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Contact</a>
                 </div>
 
-                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- Theme Toggle -->
+                <div class="flex items-center gap-3">
+                    <i class="bi bi-moon-stars theme-icon-moon text-slate-400 text-sm"></i>
+                    <button id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme"></button>
+                    <i class="bi bi-sun theme-icon-sun text-yellow-400 text-sm"></i>
+                    <button class="md:hidden text-white ml-2" onclick="toggleMobileMenu()">
+                        <i class="bi bi-list text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -72,32 +71,33 @@
                 <a href="#experience" class="block px-3 py-2 text-base font-medium hover:text-primary">Experience</a>
                 <a href="#lgu" class="block px-3 py-2 text-base font-medium hover:text-primary">LGU Expertise</a>
                 <a href="#contact" class="block px-3 py-2 text-base font-medium text-primary">Contact</a>
+                <div class="flex items-center gap-3 px-3 py-3 border-t border-slate-800 mt-2">
+                    <i class="bi bi-moon-stars theme-icon-moon text-slate-400 text-sm"></i>
+                    <button id="theme-toggle-mobile" onclick="toggleTheme()" title="Toggle theme" class="relative w-11 h-6 rounded-full bg-slate-700 border-none cursor-pointer" style="flex-shrink:0;"></button>
+                    <i class="bi bi-sun theme-icon-sun text-yellow-400 text-sm"></i>
+                    <span class="text-sm text-slate-400 ml-1">Toggle Theme</span>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about"
-        class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden grid-pattern">
-        <!-- Background Elements -->
+    <section id="about" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden grid-pattern">
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow"
-                style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8 animate-slide-up">
-                    <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-mono">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-mono">
                         <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
                         Currently Employed at ITDC Systems
                     </div>
 
                     <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
-                        <span class="block text-slate-400 text-2xl md:text-3xl font-mono mb-2 font-normal">Hello,
-                            I'm</span>
+                        <span class="block text-slate-400 text-2xl md:text-3xl font-mono mb-2 font-normal">Hello, I'm</span>
                         Jandel L. Escalera
                     </h1>
 
@@ -108,32 +108,27 @@
                     <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
                         Results-driven <span class="text-white font-semibold">.NET Full-Stack Developer</span>
                         specializing in enterprise web applications and cross-platform mobile solutions. Building
-                        scalable systems that drive digital transformation for Local Government Units and enterprise
-                        clients.
+                        scalable systems that drive digital transformation for Local Government Units and enterprise clients.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
-                        <a href="#projects"
-                            class="px-8 py-4 bg-primary hover:bg-blue-600 text-white rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center gap-2">
-                            View Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        <a href="#projects" class="px-8 py-4 bg-primary hover:bg-blue-600 text-white rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center gap-2">
+                            View Projects <i class="bi bi-arrow-right"></i>
                         </a>
-                        <a href="#contact"
-                            class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold transition-all border border-slate-700 flex items-center gap-2">
-                            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+                        <a href="#contact" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-semibold transition-all border border-slate-700 flex items-center gap-2">
+                            <i class="bi bi-envelope"></i> Get in Touch
                         </a>
                     </div>
 
                     <div class="flex items-center gap-6 pt-4">
-                        <a href="https://github.com/Jandelocks" target="_blank"
-                            class="text-slate-400 hover:text-white transition-colors">
-                            <i data-lucide="github" class="w-6 h-6"></i>
+                        <a href="https://github.com/Jandelocks" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="bi bi-github text-2xl"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
-                            class="text-slate-400 hover:text-white transition-colors">
-                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
+                            <i class="bi bi-linkedin text-2xl"></i>
                         </a>
                         <a href="mailto:jandeleido@gmail.com" class="text-slate-400 hover:text-white transition-colors">
-                            <i data-lucide="mail" class="w-6 h-6"></i>
+                            <i class="bi bi-envelope text-2xl"></i>
                         </a>
                         <div class="h-6 w-px bg-slate-700"></div>
                         <span class="text-sm text-slate-500 font-mono">BSIT Graduate 2021-2025</span>
@@ -142,8 +137,7 @@
 
                 <!-- Code Window -->
                 <div class="hidden lg:block animate-fade-in" style="animation-delay: 0.3s;">
-                    <div
-                        class="bg-card rounded-xl border border-slate-700 shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+                    <div class="bg-card rounded-xl border border-slate-700 shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
                         <div class="bg-slate-900 px-4 py-3 border-b border-slate-700 flex items-center gap-2">
                             <div class="flex gap-2">
                                 <div class="w-3 h-3 rounded-full bg-red-500"></div>
@@ -153,38 +147,25 @@
                             <div class="ml-4 text-xs text-slate-500 font-mono">Developer.cs</div>
                         </div>
                         <div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
-                            <div class="code-line"><span class="code-keyword">public class</span> <span
-                                    class="code-class">FullStackDeveloper</span> : <span
-                                    class="code-class">IInnovator</span></div>
+                            <div class="code-line"><span class="code-keyword">public class</span> <span class="code-class">FullStackDeveloper</span> : <span class="code-class">IInnovator</span></div>
                             <div class="code-line">{</div>
-                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Name => <span
-                                    class="code-string">"Jandel L. Escalera"</span>;</div>
-                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Role => <span
-                                    class="code-string">".NET Specialist"</span>;</div>
-                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Company => <span
-                                    class="code-string">"ITDC Systems"</span>;</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Name => <span class="code-string">"Jandel L. Escalera"</span>;</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Role => <span class="code-string">".NET Specialist"</span>;</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public string</span> Company => <span class="code-string">"ITDC Systems"</span>;</div>
                             <div class="code-line pl-4"></div>
-                            <div class="code-line pl-4"><span class="code-keyword">public</span> <span
-                                    class="code-class">TechStack</span> GetExpertise()</div>
+                            <div class="code-line pl-4"><span class="code-keyword">public</span> <span class="code-class">TechStack</span> GetExpertise()</div>
                             <div class="code-line pl-4">{</div>
-                            <div class="code-line pl-8"><span class="code-keyword">return new</span> <span
-                                    class="code-class">TechStack</span></div>
+                            <div class="code-line pl-8"><span class="code-keyword">return new</span> <span class="code-class">TechStack</span></div>
                             <div class="code-line pl-8">{</div>
-                            <div class="code-line pl-12">Backend = <span class="code-string">"ASP.NET Core MVC"</span>,
-                            </div>
+                            <div class="code-line pl-12">Backend = <span class="code-string">"ASP.NET Core MVC"</span>,</div>
                             <div class="code-line pl-12">Mobile = <span class="code-string">".NET MAUI"</span>,</div>
-                            <div class="code-line pl-12">Database = <span class="code-string">"SQL Server/MySQL"</span>,
-                            </div>
-                            <div class="code-line pl-12">Frontend = <span class="code-string">"Bootstrap/jQuery"</span>
-                            </div>
+                            <div class="code-line pl-12">Database = <span class="code-string">"SQL Server/MySQL"</span>,</div>
+                            <div class="code-line pl-12">Frontend = <span class="code-string">"Bootstrap/jQuery"</span></div>
                             <div class="code-line pl-8">};</div>
                             <div class="code-line pl-4">}</div>
                             <div class="code-line pl-4"></div>
-                            <div class="code-line pl-4"><span class="code-comment">// Currently optimizing LGU
-                                    systems</span></div>
-                            <div class="code-line pl-4"><span class="code-keyword">public void</span> <span
-                                    class="code-function">BuildSolutions</span>() => <span
-                                    class="code-function">ImpactCommunities</span>();</div>
+                            <div class="code-line pl-4"><span class="code-comment">// Currently optimizing LGU systems</span></div>
+                            <div class="code-line pl-4"><span class="code-keyword">public void</span> <span class="code-function">BuildSolutions</span>() => <span class="code-function">ImpactCommunities</span>();</div>
                             <div class="code-line">}</div>
                         </div>
                     </div>
@@ -198,122 +179,91 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Technical Arsenal</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Technologies I leverage to build robust, scalable enterprise
-                    solutions</p>
+                <p class="text-slate-400 max-w-2xl mx-auto">Technologies I leverage to build robust, scalable enterprise solutions</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Backend -->
                 <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
-                    <div
-                        class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
-                        <i data-lucide="server" class="w-6 h-6 text-blue-400"></i>
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
+                        <i class="bi bi-server text-2xl text-blue-400"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Backend Development</h3>
                     <ul class="space-y-2 text-slate-400">
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>ASP.NET Core MVC</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>C#
-                            & .NET Ecosystem</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>RESTful API Development</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Web API Integration</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>ASP.NET Core MVC</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>C# & .NET Ecosystem</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>RESTful API Development</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Web API Integration</li>
                     </ul>
                 </div>
 
                 <!-- Mobile -->
                 <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
-                    <div
-                        class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
-                        <i data-lucide="smartphone" class="w-6 h-6 text-purple-400"></i>
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors">
+                        <i class="bi bi-phone text-2xl text-purple-400"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Mobile Development</h3>
                     <ul class="space-y-2 text-slate-400">
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>.NET MAUI</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>Cross-Platform Apps</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>iOS & Android</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>Mobile-First Design</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>.NET MAUI</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>Cross-Platform Apps</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>iOS & Android</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>Mobile-First Design</li>
                     </ul>
                 </div>
 
                 <!-- Database -->
                 <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
-                    <div
-                        class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors">
-                        <i data-lucide="database" class="w-6 h-6 text-green-400"></i>
+                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-500/20 transition-colors">
+                        <i class="bi bi-database text-2xl text-green-400"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Database Management</h3>
                     <ul class="space-y-2 text-slate-400">
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Microsoft SQL Server</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>MySQL</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Database Design</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Query Optimization</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Microsoft SQL Server</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>MySQL</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Database Design</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Query Optimization</li>
                     </ul>
                 </div>
 
                 <!-- Frontend -->
                 <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
-                    <div
-                        class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
-                        <i data-lucide="layout" class="w-6 h-6 text-orange-400"></i>
+                    <div class="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+                        <i class="bi bi-layout-wtf text-2xl text-orange-400"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Frontend Stack</h3>
                     <ul class="space-y-2 text-slate-400">
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>HTML5 & CSS3</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Bootstrap</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>JavaScript & jQuery</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Responsive Design</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>HTML5 & CSS3</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Bootstrap</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>JavaScript & jQuery</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>Responsive Design</li>
                     </ul>
                 </div>
 
                 <!-- Tools -->
                 <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
-                        <i data-lucide="wrench" class="w-6 h-6 text-cyan-400"></i>
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="bi bi-wrench text-2xl text-cyan-400"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">Development Tools</h3>
                     <ul class="space-y-2 text-slate-400">
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Visual Studio / VS Code</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Git & GitHub</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>MySQL Workbench</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>SSMS</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Visual Studio / VS Code</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>Git & GitHub</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>MySQL Workbench</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>SSMS</li>
                     </ul>
                 </div>
 
                 <!-- QA & Optimization -->
                 <div class="hover-card bg-card rounded-xl p-6 border border-slate-800 group">
-                    <div
-                        class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors">
-                        <i data-lucide="check-circle" class="w-6 h-6 text-red-400"></i>
+                    <div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors">
+                        <i class="bi bi-check-circle text-2xl text-red-400"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-white mb-3">QA & Optimization</h3>
                     <ul class="space-y-2 text-slate-400">
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Quality Assurance Testing</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>UI/UX Optimization</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Web
-                            Debugging</li>
-                        <li class="flex items-center gap-2"><span
-                                class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Performance Tuning</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Quality Assurance Testing</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>UI/UX Optimization</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Web Debugging</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-400 rounded-full"></span>Performance Tuning</li>
                     </ul>
                 </div>
             </div>
@@ -326,303 +276,221 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-4">
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Featured Projects</h2>
-                    <p class="text-slate-400">
-                        Professional and personal projects showcasing full-stack development, mobile solutions, and
-                        system design
-                    </p>
+                    <p class="text-slate-400">Professional and personal projects showcasing full-stack development, mobile solutions, and system design</p>
                 </div>
-
-                <div
-                    class="px-4 py-2 bg-slate-800 rounded-lg border border-slate-700 text-sm text-slate-400 flex items-center gap-2">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                <div class="px-4 py-2 bg-slate-800 rounded-lg border border-slate-700 text-sm text-slate-400 flex items-center gap-2">
+                    <i class="bi bi-briefcase"></i>
                     <span>Includes client & personal work</span>
                 </div>
             </div>
 
-            <!-- ============================================================
-     REPLACE the entire <div class="grid lg:grid-cols-3 gap-8"> block
-     (and its closing </div>) with this code.
-     ============================================================ -->
-
             <div class="grid lg:grid-cols-3 gap-8">
 
                 <!-- ALERT Pinamalayan -->
-                <div
-                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
-                    <div
-                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-                        <img src="https://placehold.co/600x400/1E293B/475569?text=ALERT+Pinamalayan"
-                            alt="ALERT Pinamalayan Preview"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=ALERT+Pinamalayan" alt="ALERT Pinamalayan Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute top-4 right-4">
-                            <span
-                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">Active
-                                Project</span>
+                            <span class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">Active Project</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">ALERT
-                            Pinamalayan (MDRRMO)</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
-                            A full-stack disaster response and incident management system for citizens and responders.
-                            Enables real-time reporting, emergency coordination, and centralized monitoring.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">ALERT Pinamalayan (MDRRMO)</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">A full-stack disaster response and incident management system for citizens and responders. Enables real-time reporting, emergency coordination, and centralized monitoring.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-start gap-2">
-                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-layers text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
                                     <p class="text-sm text-slate-300">ASP.NET Core 10 MVC • C# • MySQL • .NET MAUI</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-star text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
-                                    <p class="text-sm text-slate-300">Real-time incident reporting • Responder dispatch
-                                        • Mobile citizen app • Admin dashboard • API integration</p>
+                                    <p class="text-sm text-slate-300">Real-time incident reporting • Responder dispatch • Mobile citizen app • Admin dashboard • API integration</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
-                            <span class="text-xs text-primary font-mono">Bug fixes • Feature enhancements • UI
-                                improvements • API integration • QA testing</span>
+                            <span class="text-xs text-primary font-mono">Bug fixes • Feature enhancements • UI improvements • API integration • QA testing</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- PKPOS -->
-                <div
-                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
-                    <div
-                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-                        <img src="https://placehold.co/600x400/1E293B/475569?text=PKPOS+System" alt="PKPOS Preview"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=PKPOS+System" alt="PKPOS Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute top-4 right-4">
-                            <span
-                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">Active
-                                Project</span>
+                            <span class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">Active Project</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">PKPOS –
-                            Pocket King Point of Sale</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
-                            A point-of-sale system built for restaurant and billiard operations. Handles orders, promos,
-                            reporting, and real-time shift management.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">PKPOS – Pocket King Point of Sale</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">A point-of-sale system built for restaurant and billiard operations. Handles orders, promos, reporting, and real-time shift management.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-start gap-2">
-                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-layers text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
                                     <p class="text-sm text-slate-300">ASP.NET Core MVC • C# • MySQL</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-star text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
-                                    <p class="text-sm text-slate-300">POS order management • Promo management • Shift &
-                                        session control • Reporting • Kitchen & bar routing</p>
+                                    <p class="text-sm text-slate-300">POS order management • Promo management • Shift & session control • Reporting • Kitchen & bar routing</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
-                            <span class="text-xs text-primary font-mono">POS feature development • Promo management •
-                                Bug fixes • UX improvements • Reporting</span>
+                            <span class="text-xs text-primary font-mono">POS feature development • Promo management • Bug fixes • UX improvements • Reporting</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- City Kiosk Management System -->
-                <div
-                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
-                    <div
-                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-                        <img src="https://placehold.co/600x400/1E293B/475569?text=City+Kiosk+System"
-                            alt="City Kiosk Preview"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=City+Kiosk+System" alt="City Kiosk Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute top-4 right-4">
-                            <span
-                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">Active
-                                Project</span>
+                            <span class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-yellow-400 rounded-full border border-slate-700">Active Project</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">City
-                            Kiosk Management System</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
-                            A citizen-facing kiosk and administrative management system for LGU public services,
-                            streamlining transactions and improving service delivery.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">City Kiosk Management System</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">A citizen-facing kiosk and administrative management system for LGU public services, streamlining transactions and improving service delivery.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-start gap-2">
-                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-layers text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
                                     <p class="text-sm text-slate-300">ASP.NET Core 10 MVC • C# • MySQL</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-star text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
-                                    <p class="text-sm text-slate-300">Citizen portal • Admin management •
-                                        Kiosk-integrated UI • Service request tracking • Reporting</p>
+                                    <p class="text-sm text-slate-300">Citizen portal • Admin management • Kiosk-integrated UI • Service request tracking • Reporting</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
-                            <span class="text-xs text-primary font-mono">Citizen portal enhancements • Admin features •
-                                Bug resolution • Performance improvements</span>
+                            <span class="text-xs text-primary font-mono">Citizen portal enhancements • Admin features • Bug resolution • Performance improvements</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- LoanTayo -->
-                <div
-                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
-                    <div
-                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-                        <img src="https://placehold.co/600x400/1E293B/475569?text=LoanTayo+System"
-                            alt="LoanTayo Preview"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=LoanTayo+System" alt="LoanTayo Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute top-4 right-4">
-                            <span
-                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-purple-400 rounded-full border border-slate-700">Personal
-                                Project</span>
+                            <span class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-purple-400 rounded-full border border-slate-700">Personal Project</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
-                            LoanTayo – Loan Management System</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
-                            A full-stack loan management system for handling loan processing, payment tracking, interest
-                            calculation, and financial reporting with role-based access control.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">LoanTayo – Loan Management System</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">A full-stack loan management system for handling loan processing, payment tracking, interest calculation, and financial reporting with role-based access control.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-start gap-2">
-                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-layers text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
                                     <p class="text-sm text-slate-300">ASP.NET Core 8 MVC • C# • MySQL</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-star text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
-                                    <p class="text-sm text-slate-300">Loan application & approval • Interest calculation
-                                        • Payment tracking • Role-based access • Reports & analytics</p>
+                                    <p class="text-sm text-slate-300">Loan application & approval • Interest calculation • Payment tracking • Role-based access • Reports & analytics</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
-                            <span class="text-xs text-purple-400 font-mono">Full-stack development • System design •
-                                Business logic • Database design • UI/UX</span>
+                            <span class="text-xs text-purple-400 font-mono">Full-stack development • System design • Business logic • Database design • UI/UX</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- SaveTrack -->
-                <div
-                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
-                    <div
-                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-                        <img src="https://placehold.co/600x400/1E293B/475569?text=SaveTrack+App" alt="SaveTrack Preview"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=SaveTrack+App" alt="SaveTrack Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute top-4 right-4">
-                            <span
-                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-purple-400 rounded-full border border-slate-700">Personal
-                                Project</span>
+                            <span class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-purple-400 rounded-full border border-slate-700">Personal Project</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
-                            SaveTrack – Personal Savings Tracker</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
-                            A personal savings tracking web app for managing wallets, savings goals, milestone progress,
-                            and transaction history with secure authentication and audit trail.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">SaveTrack – Personal Savings Tracker</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">A personal savings tracking web app for managing wallets, savings goals, milestone progress, and transaction history with secure authentication and audit trail.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-start gap-2">
-                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-layers text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
-                                    <p class="text-sm text-slate-300">ASP.NET Core 10 MVC • EF Core • SQL Server •
-                                        ASP.NET Identity • Serilog</p>
+                                    <p class="text-sm text-slate-300">ASP.NET Core 10 MVC • EF Core • SQL Server • ASP.NET Identity • Serilog</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-star text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
-                                    <p class="text-sm text-slate-300">Wallet CRUD • Deposits & withdrawals • Goal-based
-                                        savings • Milestone tracking (25–100%) • Audit trail • Soft delete</p>
+                                    <p class="text-sm text-slate-300">Wallet CRUD • Deposits & withdrawals • Goal-based savings • Milestone tracking (25–100%) • Audit trail • Soft delete</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
-                            <span class="text-xs text-purple-400 font-mono">Full-stack development • Layered
-                                architecture • EF Core migrations • Serilog logging • Identity auth</span>
+                            <span class="text-xs text-purple-400 font-mono">Full-stack development • Layered architecture • EF Core migrations • Serilog logging • Identity auth</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- eLIFESURE Mimaropa -->
-                <div
-                    class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
-                    <div
-                        class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                <div class="group relative bg-card rounded-2xl overflow-hidden border border-slate-800 hover:border-primary/50 transition-all duration-300 hover-card">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                         <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
-                        <img src="https://placehold.co/600x400/1E293B/475569?text=eLIFESURE+Mimaropa"
-                            alt="eLIFESURE Preview"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="https://placehold.co/600x400/1E293B/475569?text=eLIFESURE+Mimaropa" alt="eLIFESURE Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute top-4 right-4">
-                            <span
-                                class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-green-400 rounded-full border border-slate-700">Capstone
-                                Project</span>
+                            <span class="px-3 py-1 bg-slate-900/80 text-xs font-mono text-green-400 rounded-full border border-slate-700">Capstone Project</span>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
-                            eLIFESURE Mimaropa</h3>
-                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">
-                            A capstone insurance and emergency assistance platform for the Mimaropa region, providing
-                            user management, reporting, and information management features.
-                        </p>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">eLIFESURE Mimaropa</h3>
+                        <p class="text-slate-400 text-sm mb-4 line-clamp-2">A capstone insurance and emergency assistance platform for the Mimaropa region, providing user management, reporting, and information management features.</p>
                         <div class="space-y-3 mb-4">
                             <div class="flex items-start gap-2">
-                                <i data-lucide="layers" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-layers text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Tech Stack</span>
                                     <p class="text-sm text-slate-300">PHP CodeIgniter • MySQL</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-2">
-                                <i data-lucide="star" class="w-4 h-4 text-slate-500 mt-0.5"></i>
+                                <i class="bi bi-star text-slate-500 mt-0.5"></i>
                                 <div>
                                     <span class="text-xs text-slate-500 uppercase tracking-wider">Key Features</span>
-                                    <p class="text-sm text-slate-300">Insurance management • Emergency assistance • User
-                                        management • Reporting • Information management</p>
+                                    <p class="text-sm text-slate-300">Insurance management • Emergency assistance • User management • Reporting • Information management</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
-                            <span class="text-xs text-green-400 font-mono">Full-stack development • User management
-                                system • Reporting features • Platform design</span>
+                            <span class="text-xs text-green-400 font-mono">Full-stack development • User management system • Reporting features • Platform design</span>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <!-- END OF PROJECTS GRID -->
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                 <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
@@ -654,64 +522,36 @@
             </div>
 
             <div class="relative timeline-line pl-8 md:pl-0 space-y-12">
+
                 <!-- Current Position -->
-                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-center group">
+                <div class="relative md:grid md:grid-cols-2 md:gap-8 items-start group">
                     <div class="hidden md:block text-right pr-8">
                         <span class="text-primary font-mono text-sm">May 2025 - Present</span>
-                        <div
-                            class="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs border border-green-500/20">
+                        <div class="mt-2 inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs border border-green-500/20">
                             <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
                             Current
                         </div>
                     </div>
 
-                    <div
-                        class="absolute left-0 top-0 md:left-1/2 md:top-6 md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-dark shadow-lg shadow-primary/50 z-10">
-                    </div>
+                    <div class="absolute left-0 top-0 md:left-1/2 md:top-6 md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-dark shadow-lg shadow-primary/50 z-10"></div>
 
                     <div class="md:pl-8">
                         <div class="bg-card p-6 rounded-xl border border-slate-800 hover-card">
                             <div class="md:hidden mb-4">
                                 <span class="text-primary font-mono text-sm block mb-2">May 2025 - Present</span>
-                                <div
-                                    class="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs border border-green-500/20">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 text-green-400 rounded-full text-xs border border-green-500/20">
                                     <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
                                     Current
                                 </div>
                             </div>
-
                             <h3 class="text-xl font-bold text-white mb-1">Software Engineer</h3>
                             <p class="text-slate-400 text-sm mb-4 font-mono">ITDC Systems Development</p>
-
                             <ul class="space-y-2 text-slate-300 text-sm">
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
-                                    <span>Develop and maintain web and mobile applications with full-stack
-                                        features</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
-                                    <span>Build cross-platform .NET MAUI applications integrated with ASP.NET backend
-                                        via Web API</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
-                                    <span>Implement new features, fix bugs, and optimize performance for client
-                                        projects</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
-                                    <span>Provide client support and training for deployed systems</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-primary mt-0.5 flex-shrink-0"></i>
-                                    <span>Collaborate on system design, project planning, and QA testing</span>
-                                </li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-primary mt-0.5 flex-shrink-0"></i><span>Develop and maintain web and mobile applications with full-stack features</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-primary mt-0.5 flex-shrink-0"></i><span>Build cross-platform .NET MAUI applications integrated with ASP.NET backend via Web API</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-primary mt-0.5 flex-shrink-0"></i><span>Implement new features, fix bugs, and optimize performance for client projects</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-primary mt-0.5 flex-shrink-0"></i><span>Provide client support and training for deployed systems</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-primary mt-0.5 flex-shrink-0"></i><span>Collaborate on system design, project planning, and QA testing</span></li>
                             </ul>
                         </div>
                     </div>
@@ -724,41 +564,18 @@
                             <div class="md:hidden mb-4">
                                 <span class="text-secondary font-mono text-sm block">Feb 2025 - May 2025</span>
                             </div>
-
                             <h3 class="text-xl font-bold text-white mb-1">Full-Stack Developer Intern</h3>
                             <p class="text-slate-400 text-sm mb-4 font-mono">ITDC Systems Development</p>
-
                             <ul class="space-y-2 text-slate-300 text-sm">
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
-                                    <span>Completed 3-month internship as full-stack web and application
-                                        developer</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
-                                    <span>Developed Incident Management System using ASP.NET Core MVC, CSS/Bootstrap,
-                                        SSMS</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
-                                    <span>Performed QA testing on real-world projects and assisted in debugging</span>
-                                </li>
-                                <li class="flex items-start gap-2">
-                                    <i data-lucide="chevron-right"
-                                        class="w-4 h-4 text-secondary mt-0.5 flex-shrink-0"></i>
-                                    <span class="text-secondary font-medium">Led to employment offer after
-                                        internship</span>
-                                </li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-secondary mt-0.5 flex-shrink-0"></i><span>Completed 3-month internship as full-stack web and application developer</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-secondary mt-0.5 flex-shrink-0"></i><span>Developed Incident Management System using ASP.NET Core MVC, CSS/Bootstrap, SSMS</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-secondary mt-0.5 flex-shrink-0"></i><span>Performed QA testing on real-world projects and assisted in debugging</span></li>
+                                <li class="flex items-start gap-2"><i class="bi bi-chevron-right text-secondary mt-0.5 flex-shrink-0"></i><span class="text-secondary font-medium">Led to employment offer after internship</span></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div
-                        class="absolute left-0 top-0 md:left-1/2 md:top-6 md:-translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-dark shadow-lg shadow-secondary/50 z-10"">
-                    </div>
+                    <div class="absolute left-0 top-0 md:left-1/2 md:top-6 md:-translate-x-1/2 w-4 h-4 bg-secondary rounded-full border-4 border-dark shadow-lg shadow-secondary/50 z-10"></div>
 
                     <div class="hidden md:block md:pl-8 md:order-2 order-1">
                         <span class="text-secondary font-mono text-sm">Feb 2025 - May 2025</span>
@@ -771,107 +588,87 @@
                         <span class="text-purple-400 font-mono text-sm">2021 - 2025</span>
                     </div>
 
-                    <div
-                        class="absolute left-0 top-0 md:left-1/2 md:top-6 md:-translate-x-1/2 w-4 h-4 bg-purple-400 rounded-full border-4 border-dark shadow-lg shadow-purple-400/50 z-10">
-                    </div>
+                    <div class="absolute left-0 top-0 md:left-1/2 md:top-6 md:-translate-x-1/2 w-4 h-4 bg-purple-400 rounded-full border-4 border-dark shadow-lg shadow-purple-400/50 z-10"></div>
 
                     <div class="md:pl-8">
                         <div class="bg-card p-6 rounded-xl border border-slate-800 hover-card">
                             <div class="md:hidden mb-4">
                                 <span class="text-purple-400 font-mono text-sm block">2021 - 2025</span>
                             </div>
-
                             <h3 class="text-xl font-bold text-white mb-1">BS Information Technology</h3>
                             <p class="text-slate-400 text-sm mb-2 font-mono">Mindoro State University</p>
-                            <p class="text-slate-500 text-sm">Bachelor of Science in Information Technology graduate
-                                with strong foundation in software development and system architecture.</p>
+                            <p class="text-slate-500 text-sm">Bachelor of Science in Information Technology graduate with strong foundation in software development and system architecture.</p>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- LGU Expertise Section -->
     <section id="lgu" class="py-24 bg-darker relative overflow-hidden">
-        <!-- Background Accent -->
-        <div
-            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent pointer-events-none">
-        </div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/10 to-transparent pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-mono mb-6">
-                        <i data-lucide="building-2" class="w-4 h-4"></i>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-mono mb-6">
+                        <i class="bi bi-building"></i>
                         Specialized Sector
                     </div>
 
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Government Digital Transformation</h2>
 
                     <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                        Specialized in Local Government Unit (LGU) digital solutions, delivering enterprise-grade
-                        systems that modernize public services and enhance citizen engagement.
+                        Specialized in Local Government Unit (LGU) digital solutions, delivering enterprise-grade systems that modernize public services and enhance citizen engagement.
                     </p>
 
                     <div class="space-y-4">
-                        <div
-                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="siren" class="w-5 h-5 text-blue-400"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="bi bi-exclamation-triangle text-blue-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Emergency Response Coordination</h4>
-                                <p class="text-slate-400 text-sm">Real-time incident management and team dispatch
-                                    coordination platforms</p>
+                                <p class="text-slate-400 text-sm">Real-time incident management and team dispatch coordination platforms</p>
                             </div>
                         </div>
 
-                        <div
-                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="monitor" class="w-5 h-5 text-blue-400"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="bi bi-display text-blue-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Citizen Service Portals</h4>
-                                <p class="text-slate-400 text-sm">Kiosk-integrated systems for streamlined public
-                                    service delivery</p>
+                                <p class="text-slate-400 text-sm">Kiosk-integrated systems for streamlined public service delivery</p>
                             </div>
                         </div>
 
-                        <div
-                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="w-5 h-5 text-blue-400"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="bi bi-file-text text-blue-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Content Management Systems</h4>
-                                <p class="text-slate-400 text-sm">Public information platforms with intuitive admin
-                                    interfaces</p>
+                                <p class="text-slate-400 text-sm">Public information platforms with intuitive admin interfaces</p>
                             </div>
                         </div>
 
-                        <div
-                            class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
-                            <div
-                                class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="shield-alert" class="w-5 h-5 text-blue-400"></i>
+                        <div class="flex items-start gap-4 p-4 rounded-lg bg-card border border-slate-800 hover:border-blue-500/50 transition-colors">
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="bi bi-shield-exclamation text-blue-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold mb-1">Disaster Risk Reduction</h4>
-                                <p class="text-slate-400 text-sm">Management systems for MDRRMO operations and citizen
-                                    safety</p>
+                                <p class="text-slate-400 text-sm">Management systems for MDRRMO operations and citizen safety</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-8 p-4 rounded-lg bg-slate-800/50 border border-slate-700">
                         <p class="text-sm text-slate-400 flex items-center gap-2">
-                            <i data-lucide="lock" class="w-4 h-4 text-slate-500"></i>
+                            <i class="bi bi-lock text-slate-500"></i>
                             Specific client names and project details available upon request
                         </p>
                     </div>
@@ -881,24 +678,24 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-4 mt-8">
                             <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
-                                <i data-lucide="users" class="w-8 h-8 text-blue-400 mx-auto mb-2"></i>
+                                <i class="bi bi-people text-3xl text-blue-400 mx-auto mb-2 block"></i>
                                 <div class="text-2xl font-bold text-white">LGU</div>
                                 <div class="text-xs text-slate-500">Local Gov't Units</div>
                             </div>
                             <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
-                                <i data-lucide="smartphone" class="w-8 h-8 text-purple-400 mx-auto mb-2"></i>
+                                <i class="bi bi-phone text-3xl text-purple-400 mx-auto mb-2 block"></i>
                                 <div class="text-2xl font-bold text-white">Mobile</div>
                                 <div class="text-xs text-slate-500">Cross-Platform</div>
                             </div>
                         </div>
                         <div class="space-y-4">
                             <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
-                                <i data-lucide="globe" class="w-8 h-8 text-green-400 mx-auto mb-2"></i>
+                                <i class="bi bi-globe text-3xl text-green-400 mx-auto mb-2 block"></i>
                                 <div class="text-2xl font-bold text-white">Web</div>
                                 <div class="text-xs text-slate-500">Enterprise Apps</div>
                             </div>
                             <div class="bg-card p-6 rounded-xl border border-slate-800 text-center hover-card">
-                                <i data-lucide="database" class="w-8 h-8 text-orange-400 mx-auto mb-2"></i>
+                                <i class="bi bi-database text-3xl text-orange-400 mx-auto mb-2 block"></i>
                                 <div class="text-2xl font-bold text-white">Data</div>
                                 <div class="text-xs text-slate-500">Secure Storage</div>
                             </div>
@@ -916,20 +713,28 @@
                 <!-- Certifications -->
                 <div>
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                        <i data-lucide="award" class="w-6 h-6 text-yellow-400"></i>
+                        <i class="bi bi-award text-2xl text-yellow-400"></i>
                         Certifications
                     </h3>
                     <div class="space-y-4">
-                        <div
-                            class="bg-card p-6 rounded-xl border border-slate-800 hover:border-yellow-400/50 transition-all hover-card">
+                        <div class="bg-card p-6 rounded-xl border border-slate-800 hover:border-yellow-400/50 transition-all hover-card">
                             <div class="flex justify-between items-start mb-2">
                                 <h4 class="text-white font-semibold">Programming Java NCIII</h4>
                                 <span class="text-xs text-slate-500 font-mono">Nov 2024</span>
                             </div>
-                            <p class="text-slate-400 text-sm mb-2">TESDA - Technical Education and Skills Development
-                                Authority</p>
+                            <p class="text-slate-400 text-sm mb-2">TESDA - Technical Education and Skills Development Authority</p>
                             <div class="flex items-center gap-2 text-xs text-yellow-400">
-                                <i data-lucide="check-circle" class="w-3 h-3"></i>
+                                <i class="bi bi-check-circle"></i>
+                                <span>Certificate of Completion</span>
+                            </div>
+                        </div>
+                        <div class="bg-card p-6 rounded-xl border border-slate-800 hover:border-yellow-400/50 transition-all hover-card">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-white font-semibold">Training for Work Scholarship Program (TWSP)</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm mb-2">TESDA - Technical Education and Skills Development Authority</p>
+                            <div class="flex items-center gap-2 text-xs text-yellow-400">
+                                <i class="bi bi-check-circle"></i>
                                 <span>Certificate of Completion</span>
                             </div>
                         </div>
@@ -939,31 +744,26 @@
                 <!-- Languages -->
                 <div>
                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                        <i data-lucide="languages" class="w-6 h-6 text-cyan-400"></i>
+                        <i class="bi bi-translate text-2xl text-cyan-400"></i>
                         Languages
                     </h3>
                     <div class="space-y-4">
                         <div class="bg-card p-6 rounded-xl border border-slate-800">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-white font-medium">Filipino</span>
-                                <span
-                                    class="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20">Native
-                                    Fluency</span>
+                                <span class="text-xs px-2 py-1 bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20">Native Fluency</span>
                             </div>
                             <div class="w-full bg-slate-800 rounded-full h-2">
                                 <div class="bg-cyan-400 h-2 rounded-full" style="width: 100%"></div>
                             </div>
                         </div>
-
                         <div class="bg-card p-6 rounded-xl border border-slate-800">
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-white font-medium">English</span>
-                                <span
-                                    class="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded-full border border-slate-600">Basic
-                                    (Verbal & Written)</span>
+                                <span class="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded-full border border-slate-600">Professional Working</span>
                             </div>
                             <div class="w-full bg-slate-800 rounded-full h-2">
-                                <div class="bg-slate-500 h-2 rounded-full" style="width: 60%"></div>
+                                <div class="bg-slate-400 h-2 rounded-full" style="width: 75%"></div>
                             </div>
                         </div>
                     </div>
@@ -976,54 +776,52 @@
     <section id="contact" class="py-24 bg-darker relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's Build Something Together</h2>
-            <p class="text-slate-400 mb-12 max-w-2xl mx-auto">Open to opportunities in enterprise development, LGU
-                digital solutions, and cross-platform application projects.</p>
+            <p class="text-slate-400 mb-12 max-w-2xl mx-auto">Open to opportunities in enterprise development, LGU digital solutions, and cross-platform application projects.</p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <a href="mailto:jandeleido@gmail.com"
-                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
-                    <div
-                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                        <i data-lucide="mail" class="w-6 h-6 text-primary"></i>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
+                <a href="mailto:jandeleido@gmail.com" class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i class="bi bi-envelope text-2xl text-primary"></i>
                     </div>
                     <h4 class="text-white font-medium text-sm mb-1">Email</h4>
                     <p class="text-slate-400 text-xs break-all">jandeleido@gmail.com</p>
                 </a>
 
-                <a href="tel:+639945428697"
-                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
-                    <div
-                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                        <i data-lucide="phone" class="w-6 h-6 text-primary"></i>
+                <a href="tel:+639945428697" class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i class="bi bi-telephone text-2xl text-primary"></i>
                     </div>
                     <h4 class="text-white font-medium text-sm mb-1">Phone</h4>
                     <p class="text-slate-400 text-xs">+(63) 994 542 8697</p>
                 </a>
 
-                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
-                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
-                    <div
-                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                        <i data-lucide="linkedin" class="w-6 h-6 text-primary"></i>
+                <a href="https://www.facebook.com/jandel.escalera.5" target="_blank" rel="noopener noreferrer" class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all hover-card">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-500/20 transition-colors">
+                        <i class="bi bi-facebook text-2xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium text-sm mb-1">Facebook</h4>
+                    <p class="text-slate-400 text-xs">Connect on FB</p>
+                </a>
+
+                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank" rel="noopener noreferrer" class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i class="bi bi-linkedin text-2xl text-primary"></i>
                     </div>
                     <h4 class="text-white font-medium text-sm mb-1">LinkedIn</h4>
                     <p class="text-slate-400 text-xs">Connect Professional</p>
                 </a>
 
-                <a href="https://github.com/Jandelocks" target="_blank"
-                    class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
-                    <div
-                        class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                        <i data-lucide="github" class="w-6 h-6 text-primary"></i>
+                <a href="https://github.com/Jandelocks" target="_blank" rel="noopener noreferrer" class="group bg-card p-6 rounded-xl border border-slate-800 hover:border-primary/50 transition-all hover-card">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                        <i class="bi bi-github text-2xl text-primary"></i>
                     </div>
                     <h4 class="text-white font-medium text-sm mb-1">GitHub</h4>
                     <p class="text-slate-400 text-xs">View Code</p>
                 </a>
             </div>
 
-            <div
-                class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 rounded-full border border-slate-700 text-slate-400 text-sm">
-                <i data-lucide="map-pin" class="w-4 h-4"></i>
+            <div class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 rounded-full border border-slate-700 text-slate-400 text-sm">
+                <i class="bi bi-geo-alt"></i>
                 <span>Calapan City, Oriental Mindoro, Philippines</span>
             </div>
         </div>
@@ -1031,28 +829,23 @@
 
     <!-- Footer -->
     <footer class="bg-dark border-t border-slate-800 py-8">
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-2">
-                <div
-                    class="w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded flex items-center justify-center">
+                <div class="w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded flex items-center justify-center">
                     <span class="text-white font-mono font-bold text-xs">&lt;/&gt;</span>
                 </div>
-                <span class="text-slate-400 text-sm">© 2025 Jandel L. Escalera. All rights reserved.</span>
+                <span class="text-slate-400 text-sm" id="footer-year">© 2026 Jandel L. Escalera. All rights reserved.</span>
             </div>
 
             <div class="flex items-center gap-6">
-                <a href="https://escalerajandel.vercel.app/" target="_blank"
-                    class="text-slate-400 hover:text-white text-sm transition-colors flex items-center gap-1">
-                    Portfolio <i data-lucide="external-link" class="w-3 h-3"></i>
+                <a href="https://www.facebook.com/jandel.escalera.5" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="bi bi-facebook text-xl"></i>
                 </a>
-                <a href="https://github.com/Jandelocks" target="_blank"
-                    class="text-slate-400 hover:text-white transition-colors">
-                    <i data-lucide="github" class="w-5 h-5"></i>
+                <a href="https://github.com/Jandelocks" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="bi bi-github text-xl"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
-                    class="text-slate-400 hover:text-white transition-colors">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="bi bi-linkedin text-xl"></i>
                 </a>
             </div>
         </div>
@@ -1061,7 +854,7 @@
     <!-- Back to Top Button -->
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
         class="fixed bottom-8 right-8 bg-primary hover:bg-blue-600 text-white p-3 rounded-full shadow-lg shadow-primary/30 transition-all transform translate-y-20 opacity-0 z-50">
-        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        <i class="bi bi-arrow-up text-xl"></i>
     </button>
 
     <script src="main.js"></script>

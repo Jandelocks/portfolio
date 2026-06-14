@@ -1,51 +1,134 @@
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* =============================================
+   THEME VARIABLES - Light & Dark Mode
+   ============================================= */
+
+/* Default: Dark Mode */
+:root {
+    --bg-darker: #020617;
+    --bg-dark:   #0F172A;
+    --bg-card:   #1E293B;
+    --text-base: #CBD5E1;       /* slate-300 */
+    --text-muted:#94A3B8;       /* slate-400 */
+    --text-white:#FFFFFF;
+    --border:    #1E293B;       /* slate-800 */
+    --border-hover: rgba(59,130,246,0.5);
+    --scrollbar-track: #0F172A;
+    --scrollbar-thumb: #334155;
+    --scrollbar-thumb-hover: #475569;
+    --glass-bg:  rgba(30, 41, 59, 0.7);
+    --code-comment: #5C6370;
+    --progress-track: #1E293B;
+    --shadow-card: rgba(0,0,0,0.3);
+    --navbar-scroll-bg: rgba(2,6,23,0.95);
 }
 
-::-webkit-scrollbar-track {
-    background: #0F172A;
+/* Light Mode */
+html.light {
+    --bg-darker: #F8FAFC;
+    --bg-dark:   #F1F5F9;
+    --bg-card:   #FFFFFF;
+    --text-base: #334155;       /* slate-700 */
+    --text-muted:#64748B;       /* slate-500 */
+    --text-white:#0F172A;
+    --border:    #E2E8F0;       /* slate-200 */
+    --border-hover: rgba(59,130,246,0.5);
+    --scrollbar-track: #F1F5F9;
+    --scrollbar-thumb: #CBD5E1;
+    --scrollbar-thumb-hover: #94A3B8;
+    --glass-bg:  rgba(248, 250, 252, 0.85);
+    --code-comment: #6B7280;
+    --progress-track: #E2E8F0;
+    --shadow-card: rgba(0,0,0,0.08);
+    --navbar-scroll-bg: rgba(248,250,252,0.95);
 }
 
-::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 4px;
+/* =============================================
+   GLOBAL OVERRIDES USING CSS VARIABLES
+   ============================================= */
+
+body {
+    background-color: var(--bg-darker) !important;
+    color: var(--text-base) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #475569;
-}
+/* All text-white in dark = heading color via variable */
+html.light .text-white { color: var(--text-white) !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .text-slate-400 { color: #64748B !important; }
+html.light .text-slate-500 { color: #94A3B8 !important; }
 
-/* Syntax Highlighting Simulation */
-.code-keyword {
-    color: #C678DD;
-}
+/* Backgrounds */
+html.light .bg-darker { background-color: var(--bg-darker) !important; }
+html.light .bg-dark   { background-color: var(--bg-dark) !important; }
+html.light .bg-card   { background-color: var(--bg-card) !important; }
 
-.code-function {
-    color: #61AFEF;
-}
+/* Borders */
+html.light .border-slate-800 { border-color: var(--border) !important; }
+html.light .border-slate-700 { border-color: #CBD5E1 !important; }
 
-.code-string {
-    color: #98C379;
-}
+/* Language badge fix: slate-700 bg + slate-300 text becomes unreadable in light */
+html.light .bg-slate-700 { background-color: #E2E8F0 !important; }
+html.light .text-slate-300 { color: #334155 !important; }
+html.light .border-slate-600 { border-color: #CBD5E1 !important; }
 
-.code-comment {
-    color: #5C6370;
-    font-style: italic;
-}
+/* Progress bar fill: slate-400 is too light against a light track */
+html.light .bg-slate-400 { background-color: #64748B !important; }
 
-.code-class {
-    color: #E5C07B;
-}
+/* Navbar & mobile menu */
+html.light #navbar { border-color: #E2E8F0 !important; }
+html.light #mobile-menu { border-color: #E2E8F0 !important; }
 
-/* Glassmorphism */
+/* Progress bars track */
+html.light .bg-slate-800 { background-color: var(--progress-track) !important; }
+
+/* Code window */
+html.light .bg-slate-900 { background-color: #F1F5F9 !important; }
+
+/* Inline bg tweaks */
+html.light .bg-slate-800\/50 { background-color: rgba(226,232,240,0.5) !important; }
+
+/* Timeline dots border */
+html.light .border-dark { border-color: var(--bg-dark) !important; }
+
+/* =============================================
+   CUSTOM SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+
+/* =============================================
+   SYNTAX HIGHLIGHTING
+   ============================================= */
+.code-keyword  { color: #C678DD; }
+.code-function { color: #61AFEF; }
+.code-string   { color: #98C379; }
+.code-comment  { color: var(--code-comment); font-style: italic; }
+.code-class    { color: #E5C07B; }
+
+html.light .code-keyword  { color: #7C3AED; }
+html.light .code-function { color: #2563EB; }
+html.light .code-string   { color: #16A34A; }
+html.light .code-class    { color: #D97706; }
+
+/* =============================================
+   GLASSMORPHISM
+   ============================================= */
 .glass {
-    background: rgba(30, 41, 59, 0.7);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+html.light .glass {
+    border-color: rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
 
-/* Gradient Text */
+/* =============================================
+   GRADIENT TEXT
+   ============================================= */
 .gradient-text {
     background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
     -webkit-background-clip: text;
@@ -53,43 +136,111 @@
     background-clip: text;
 }
 
-/* Hover Card Effect */
-.hover-card {
-    transition: all 0.3s ease;
-}
-
+/* =============================================
+   HOVER CARD
+   ============================================= */
+.hover-card { transition: all 0.3s ease; }
 .hover-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.3);
 }
+html.light .hover-card:hover {
+    box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.2);
+}
 
-/* Timeline Line */
+/* =============================================
+   TIMELINE LINE
+   ============================================= */
 .timeline-line::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 2px;
     background: linear-gradient(to bottom, #3B82F6, #10B981);
 }
-/* Desktop: center */
 @media (min-width: 768px) {
-    .timeline-line::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
+    .timeline-line::before { left: 50%; transform: translateX(-50%); }
 }
-/* Typing Effect */
+
+/* =============================================
+   TYPING CURSOR
+   ============================================= */
 .typing-text::after {
     content: '|';
     animation: cursor 1s step-end infinite;
     color: #3B82F6;
 }
 
-/* Grid Pattern Background */
+/* =============================================
+   GRID PATTERN BACKGROUND
+   ============================================= */
 .grid-pattern {
-    background-image: linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    background-image:
+        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
+}
+
+/* =============================================
+   THEME TOGGLE BUTTON
+   ============================================= */
+#theme-toggle {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    background: #334155;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+html.light #theme-toggle { background: #BFDBFE; }
+
+#theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #94A3B8;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+html.light #theme-toggle::after {
+    transform: translateX(20px);
+    background: #3B82F6;
+}
+
+.theme-icon-moon,
+.theme-icon-sun {
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+html:not(.light) .theme-icon-sun  { display: none; }
+html.light        .theme-icon-moon { display: none; }
+
+/* Smooth section transitions */
+section, footer, nav { transition: background-color 0.3s ease; }
+
+/* Light mode: footer */
+html.light footer { background-color: var(--bg-dark) !important; }
+
+/* Mobile menu toggle mirror */
+#theme-toggle-mobile {
+    background: #334155;
+    transition: background 0.3s ease;
+}
+#theme-toggle-mobile::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: #94A3B8;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+html.light #theme-toggle-mobile { background: #BFDBFE; }
+html.light #theme-toggle-mobile::after {
+    transform: translateX(20px);
+    background: #3B82F6;
 }
