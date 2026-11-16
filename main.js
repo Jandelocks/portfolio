@@ -39,97 +39,120 @@
        --------------------------------------------------------------------- */
 
     var preloader = document.getElementById('preloader');
+    var preloaderCard = document.getElementById('preloader-card');
     var preloaderBar = document.getElementById('preloader-bar');
-    var preloaderCount = document.getElementById('preloader-count');
+    var preloaderPercent = document.getElementById('preloader-percent');
+    var preloaderStatus = document.getElementById('preloader-status');
+
     var preloaderStart = window.performance && window.performance.now ? window.performance.now() : Date.now();
-    var preloaderTarget = 0;
-    var preloaderShownValue = 0;
-    var preloaderTicker = null;
     var preloaderFinished = false;
+    var loadFired = (document.readyState === 'complete');
+    var forceReady = false;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     var preloaderActive = !!preloader &&
         root.classList.contains('is-loading') &&
         !root.classList.contains('preloader-skip');
 
-    function renderPreloader() {
+    var minDuration = reducedMotion ? 600 : 1200;
+    var safetyTimeout = 6000;
+
+    var currentProgress = 0;
+    var targetProgress = 0;
+    var rafId = null;
+
+    window.addEventListener('load', function () { loadFired = true; });
+
+    function easeProgress(t) {
+        // fast start, slower middle, quick finish
+        if (t < 0.5) {
+            return 2 * t - 2 * t * t;
+        }
+        return 2 * t * t - 2 * t + 1;
+    }
+
+    function stageText(p) {
+        if (p < 30) return 'Initializing experience...';
+        if (p < 60) return 'Loading assets...';
+        if (p < 90) return 'Preparing interface...';
+        return 'Almost ready...';
+    }
+
+    function renderPreloader(p) {
         if (preloaderBar) {
-            preloaderBar.style.transform = 'scaleX(' + (preloaderTarget / 100).toFixed(3) + ')';
+            preloaderBar.style.transform = 'scaleX(' + (p / 100).toFixed(4) + ')';
         }
-        if (preloaderCount) {
-            var shown = Math.round(preloaderShownValue);
-            preloaderCount.textContent = (shown < 10 ? '0' : '') + shown;
+        if (preloaderPercent) {
+            preloaderPercent.textContent = Math.round(p) + '%';
+        }
+        if (preloaderStatus) {
+            preloaderStatus.textContent = stageText(p);
         }
     }
 
-    function tickPreloader() {
-        if (preloaderShownValue >= preloaderTarget) {
-            window.clearInterval(preloaderTicker);
-            preloaderTicker = null;
-            return;
-        }
-        preloaderShownValue = Math.min(
-            preloaderTarget,
-            preloaderShownValue + Math.max(1, Math.ceil((preloaderTarget - preloaderShownValue) / 5))
-        );
-        renderPreloader();
+    function lockScroll() {
+        document.body.classList.add('preloader-lock');
     }
 
-    function setPreloaderProgress(value) {
-        if (!preloaderActive) return;
-        preloaderTarget = Math.max(preloaderTarget, Math.min(100, value));
-        renderPreloader();
-        if (!preloaderTicker && preloaderShownValue < preloaderTarget) {
-            preloaderTicker = window.setInterval(tickPreloader, 26);
-        }
+    function unlockScroll() {
+        document.body.classList.remove('preloader-lock');
     }
 
     function finishPreloader() {
         if (!preloaderActive || preloaderFinished) return;
         preloaderFinished = true;
+        if (rafId) { window.cancelAnimationFrame(rafId); rafId = null; }
 
-        setPreloaderProgress(100);
-
-        var elapsed = (window.performance && window.performance.now ? window.performance.now() : Date.now()) - preloaderStart;
-        var wait = Math.max(0, 520 - elapsed);
+        currentProgress = 100;
+        targetProgress = 100;
+        renderPreloader(100);
 
         window.setTimeout(function () {
-            preloaderShownValue = 100;
-            renderPreloader();
-            preloader.classList.add('is-leaving');
-            root.classList.remove('is-loading');
-            root.classList.add('preloader-done');
-            try { sessionStorage.setItem('preloader-seen', '1'); } catch (e) { /* storage blocked */ }
-
-            /* The page composes itself as the curtain lifts. */
-            initReveals();
-
+            if (preloaderCard) preloaderCard.classList.add('is-exiting');
             window.setTimeout(function () {
-                preloader.classList.add('is-gone');
-            }, 1000);
-        }, wait);
+                root.classList.remove('is-loading');
+                root.classList.add('preloader-done');
+                if (preloader) preloader.classList.add('is-gone');
+                unlockScroll();
+                try { sessionStorage.setItem('preloader-seen', '1'); } catch (e) { /* storage blocked */ }
+                initReveals();
+            }, 500);
+        }, 250);
+    }
+
+    function tick() {
+        if (!preloaderActive || preloaderFinished) return;
+
+        var now = window.performance && window.performance.now ? window.performance.now() : Date.now();
+        var elapsed = now - preloaderStart;
+
+        // target based on time + readiness
+        var t = Math.min(1, elapsed / minDuration);
+        var base = easeProgress(t) * 90;
+        if (loadFired || forceReady) base = Math.max(base, 92);
+        if ((loadFired || forceReady) && elapsed >= minDuration) base = 100;
+        targetProgress = Math.min(100, base);
+
+        // smooth current toward target
+        currentProgress += (targetProgress - currentProgress) * 0.14;
+        if (targetProgress === 100 && currentProgress > 99) currentProgress = 100;
+
+        renderPreloader(currentProgress);
+
+        if (currentProgress >= 100) {
+            finishPreloader();
+        } else {
+            rafId = window.requestAnimationFrame(tick);
+        }
     }
 
     if (preloaderActive) {
-        setPreloaderProgress(12);
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function () { setPreloaderProgress(44); });
-        } else {
-            setPreloaderProgress(44);
-        }
-
-        if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(function () { setPreloaderProgress(78); });
-        }
-
-        window.addEventListener('load', function () {
-            setPreloaderProgress(94);
-            finishPreloader();
-        });
-
-        if (document.readyState === 'complete') finishPreloader();
-
-        /* Never hold the page hostage for the sake of the animation. */
-        window.setTimeout(finishPreloader, 1600);
+        lockScroll();
+        // safety timeout
+        window.setTimeout(function () { forceReady = true; }, safetyTimeout);
+        rafId = window.requestAnimationFrame(tick);
+    } else {
+        unlockScroll();
     }
 
     /* ---------------------------------------------------------------------

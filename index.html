@@ -7,8 +7,8 @@
     <title>Jandel L. Escalera — .NET Full-Stack Developer</title>
     <meta name="description"
         content="Jandel L. Escalera is a .NET full-stack developer in Calapan City, Philippines, building enterprise web platforms, LGU digital services, and cross-platform .NET MAUI apps.">
-    <meta name="theme-color" content="#F3EFE7" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0D0D0B" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#080B14">
+    
     <link rel="icon" type="image/png" href="img/icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,13 +24,12 @@
             var seen = false;
             try { theme = localStorage.getItem('theme'); } catch (e) { }
             try { seen = sessionStorage.getItem('preloader-seen') === '1'; } catch (e) { }
-            if (theme !== 'light' && theme !== 'dark') {
-                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
+            /* Dual Neon theme is dark-only. */
+            theme = 'dark';
             doc.setAttribute('data-theme', theme);
             doc.classList.add('js');
 
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || seen) {
+            if (seen) {
                 doc.classList.add('preloader-skip');
             } else {
                 doc.classList.add('is-loading');
@@ -50,23 +49,22 @@
 <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="preloader" id="preloader" aria-hidden="true">
-        <div class="preloader-panel">
-            <div class="preloader-top">
-                <span class="preloader-index">00</span>
-                <span>.NET Full-Stack Developer</span>
+    <div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
+        <div class="preloader-card" id="preloader-card">
+            <div class="preloader-badge" aria-hidden="true">
+                <span class="preloader-badge-text">JE</span>
             </div>
-            <div class="preloader-name">
-                Jandel L.
-                <em>Escalera</em>
-            </div>
-            <div class="preloader-foot">
-                <span class="preloader-status">Preparing the dossier</span>
-                <span class="preloader-count"><span id="preloader-count">00</span><i>%</i></span>
+            <h1 class="preloader-name">JANDEL ESCALERA</h1>
+            <p class="preloader-title">SOFTWARE ENGINEER</p>
+            <div class="preloader-progress-row">
+                <span class="preloader-status" id="preloader-status">Initializing experience...</span>
+                <span class="preloader-percent" id="preloader-percent">0%</span>
             </div>
             <div class="preloader-track" aria-hidden="true">
                 <span class="preloader-bar" id="preloader-bar"></span>
+                <span class="preloader-shimmer" aria-hidden="true"></span>
             </div>
+            <p class="preloader-caption">Building experiences with .NET</p>
         </div>
     </div>
 
@@ -100,15 +98,6 @@
             </nav>
 
             <div class="header-tools">
-                <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme">
-                    <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.7 8.7 0 1 0 10.7 10.7Z" />
-                    </svg>
-                    <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="12" r="4.2" />
-                        <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6" />
-                    </svg>
-                </button>
                 <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu"
                     aria-expanded="false" aria-controls="mobile-menu">
                     <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
