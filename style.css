@@ -18,6 +18,8 @@
     --accent: #D93A11;
     --accent-text: #AF320D;
     --accent-soft: rgba(217, 58, 17, 0.10);
+    --aura: 217, 58, 17;
+    --aura-opacity: 0.5;
     --header-bg: rgba(243, 239, 231, 0.86);
     --grid-line: rgba(20, 19, 15, 0.075);
     --grain-opacity: 0.42;
@@ -51,6 +53,8 @@
     --accent: #FF5A2B;
     --accent-text: #FF7448;
     --accent-soft: rgba(255, 90, 43, 0.14);
+    --aura: 255, 90, 43;
+    --aura-opacity: 1;
     --header-bg: rgba(13, 13, 11, 0.84);
     --grid-line: rgba(242, 237, 226, 0.06);
     --grain-opacity: 0.55;
@@ -74,7 +78,12 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-h) + 16px);
+    scrollbar-gutter: stable;
     -webkit-text-size-adjust: 100%;
+}
+
+html.is-loading {
+    overflow: hidden;
 }
 
 body {
@@ -520,6 +529,7 @@ body.menu-open .menu-bars i:last-child {
     grid-template-columns: minmax(0, 1fr) 330px;
     gap: clamp(2rem, 5vw, 4.5rem);
     align-items: end;
+    transform: translate3d(0, var(--hero-lift, 0px), 0);
 }
 
 .hero-main {
@@ -1593,7 +1603,321 @@ html.js .reveal.is-visible {
     transform: none;
 }
 
-/* ---------- 16. Responsive ---------- */
+/* ---------- 16. Preloader ---------- */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: var(--gutter);
+    background: var(--paper);
+    color: var(--ink);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.preloader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 94px 94px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 42%, #000 0%, transparent 78%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 42%, #000 0%, transparent 78%);
+    pointer-events: none;
+}
+
+.preloader-panel {
+    position: relative;
+    width: min(var(--wrap), 100%);
+    transition: opacity 0.45s ease, transform 0.55s var(--ease);
+}
+
+.preloader-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--rule-strong);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
+.preloader-index {
+    color: var(--accent-text);
+}
+
+.preloader-name {
+    margin: clamp(1.5rem, 5vh, 3rem) 0 clamp(2rem, 6vh, 3.5rem);
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-size: clamp(2.8rem, 10vw, 7rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+}
+
+.preloader-name em {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.045em;
+}
+
+.preloader-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+
+.preloader-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.preloader-status::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    animation: preloader-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes preloader-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+.preloader-count {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+}
+
+.preloader-count i {
+    font-style: normal;
+    color: var(--ink-3);
+    margin-left: 2px;
+}
+
+.preloader-track {
+    height: 1px;
+    background: var(--rule);
+    overflow: hidden;
+}
+
+.preloader-bar {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.45s var(--ease);
+}
+
+.preloader.is-leaving {
+    transform: translateY(-100%);
+}
+
+.preloader.is-leaving .preloader-panel {
+    opacity: 0;
+    transform: translateY(-18px);
+}
+
+.preloader.is-gone {
+    display: none;
+}
+
+html.preloader-skip .preloader,
+html.preloader-failsafe .preloader {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader {
+        display: none;
+    }
+}
+
+/* ---------- 17. Cursor aura ---------- */
+
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 580px;
+    height: 580px;
+    margin: -290px 0 0 -290px;
+    display: none;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 95;
+    transition: opacity 0.45s ease;
+    will-change: transform;
+}
+
+html.has-cursor .cursor-glow {
+    display: block;
+}
+
+.cursor-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%,
+            rgba(var(--aura), 0.34) 0%,
+            rgba(var(--aura), 0.16) 20%,
+            rgba(var(--aura), 0.06) 40%,
+            rgba(var(--aura), 0) 66%);
+    transform: scale(1);
+    transition: transform 0.65s var(--ease);
+}
+
+html.has-cursor .cursor-glow.is-on {
+    opacity: var(--aura-opacity);
+}
+
+html.cursor-hot .cursor-glow::before {
+    transform: scale(1.32);
+}
+
+html.cursor-down .cursor-glow::before {
+    transform: scale(0.94);
+}
+
+html.cursor-hot.cursor-down .cursor-glow::before {
+    transform: scale(1.22);
+}
+
+@media (hover: none), (pointer: coarse), (max-width: 899px) {
+
+    html.has-cursor .cursor-glow {
+        display: none;
+    }
+}
+
+/* ---------- 18. Motion polish ---------- */
+
+/* section rules draw themselves as the heading arrives */
+html.js .section-head .section-rule {
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 1.15s var(--ease) 0.15s;
+}
+
+html.js .section-head.is-visible .section-rule {
+    transform: scaleX(1);
+}
+
+/* buttons: lift, glow and a single sheen pass */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(112deg, transparent 34%, rgba(255, 255, 255, 0.2) 46%, transparent 58%);
+    transform: translateX(-130%);
+    transition: transform 0.75s var(--ease);
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    transform: translateX(130%);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 16px 34px -18px rgba(var(--aura), 0.7);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.985);
+}
+
+.icon-btn .icon {
+    transition: transform 0.4s var(--ease);
+}
+
+.icon-btn:hover .icon {
+    transform: rotate(-14deg) scale(1.06);
+}
+
+.icon-btn:active {
+    transform: scale(0.94);
+}
+
+/* technology badges */
+.tags li {
+    transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease,
+        transform 0.3s var(--ease), box-shadow 0.3s ease;
+}
+
+.tags li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -12px rgba(var(--aura), 0.9);
+}
+
+/* rows and project lines respond to the pointer */
+.stack-row h3,
+.work-title {
+    transition: color 0.25s ease;
+}
+
+.stack-row:hover h3 {
+    color: var(--accent-text);
+}
+
+.work-plus {
+    transition: color 0.25s ease, transform 0.25s var(--ease);
+}
+
+.work-toggle:active .work-plus {
+    transform: scale(0.82);
+}
+
+/* contact links */
+.cl-arrow {
+    transition: transform 0.35s var(--ease);
+}
+
+.contact-link:hover .cl-arrow {
+    transform: translate(2px, -2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-grid {
+        transform: none;
+    }
+
+    .btn-primary::after {
+        display: none;
+    }
+}
+
+/* ---------- 19. Responsive ---------- */
 
 @media (max-width: 1080px) {
     .hero-grid {
@@ -1848,7 +2172,7 @@ html.js .reveal.is-visible {
     }
 }
 
-/* ---------- 17. Motion preferences ---------- */
+/* ---------- 20. Motion preferences ---------- */
 
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -1871,5 +2195,13 @@ html.js .reveal.is-visible {
 
     .ticker-track {
         animation: none;
+    }
+
+    .cursor-glow {
+        display: none !important;
+    }
+
+    .preloader {
+        display: none !important;
     }
 }

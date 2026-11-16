@@ -19,13 +19,28 @@
 
     <script>
         (function () {
+            var doc = document.documentElement;
             var theme;
+            var seen = false;
             try { theme = localStorage.getItem('theme'); } catch (e) { }
+            try { seen = sessionStorage.getItem('preloader-seen') === '1'; } catch (e) { }
             if (theme !== 'light' && theme !== 'dark') {
                 theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
-            document.documentElement.setAttribute('data-theme', theme);
-            document.documentElement.classList.add('js');
+            doc.setAttribute('data-theme', theme);
+            doc.classList.add('js');
+
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || seen) {
+                doc.classList.add('preloader-skip');
+            } else {
+                doc.classList.add('is-loading');
+                /* If the rest of the scripts never finish, never trap the page. */
+                window.setTimeout(function () {
+                    if (doc.classList.contains('preloader-done')) return;
+                    doc.classList.remove('is-loading', 'js');
+                    doc.classList.add('preloader-failsafe');
+                }, 4000);
+            }
         })();
     </script>
 
@@ -35,8 +50,35 @@
 <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-panel">
+            <div class="preloader-top">
+                <span class="preloader-index">00</span>
+                <span>.NET Full-Stack Developer</span>
+            </div>
+            <div class="preloader-name">
+                Jandel L.
+                <em>Escalera</em>
+            </div>
+            <div class="preloader-foot">
+                <span class="preloader-status">Preparing the dossier</span>
+                <span class="preloader-count"><span id="preloader-count">00</span><i>%</i></span>
+            </div>
+            <div class="preloader-track" aria-hidden="true">
+                <span class="preloader-bar" id="preloader-bar"></span>
+            </div>
+        </div>
+    </div>
+
+    <noscript>
+        <style>
+            #preloader { display: none !important; }
+        </style>
+    </noscript>
+
     <div class="grain" aria-hidden="true"></div>
     <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
     <!-- ============ HEADER ============ -->
     <header class="site-header" id="site-header">
