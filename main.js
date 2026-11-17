@@ -506,6 +506,37 @@
     }
 
     /* ---------------------------------------------------------------------
+       Portrait tilt
+       --------------------------------------------------------------------- */
+
+    var portraitFrame = document.querySelector('.portrait-frame');
+    var tiltPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    if (portraitFrame) {
+        portraitFrame.addEventListener('pointermove', function (event) {
+            if (event.pointerType === 'touch' || !tiltPointer.matches || reduceMotion.matches) return;
+
+            var rect = portraitFrame.getBoundingClientRect();
+            var px = (event.clientX - rect.left) / rect.width;
+            var py = (event.clientY - rect.top) / rect.height;
+
+            portraitFrame.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+            portraitFrame.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+            portraitFrame.style.transform =
+                'rotateX(' + ((0.5 - py) * 12).toFixed(2) + 'deg) ' +
+                'rotateY(' + ((px - 0.5) * 12).toFixed(2) + 'deg)';
+        }, { passive: true });
+
+        portraitFrame.addEventListener('pointerleave', function () {
+            portraitFrame.style.transform = '';
+        });
+
+        portraitFrame.addEventListener('pointercancel', function () {
+            portraitFrame.style.transform = '';
+        });
+    }
+
+    /* ---------------------------------------------------------------------
        Copy email
        --------------------------------------------------------------------- */
 
