@@ -1670,10 +1670,16 @@ html.js .hero-portrait.is-cinematic .portrait-plate::before {
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
-    gap: clamp(2.5rem, 6vw, 6rem);
-    align-items: start;
+    display: block;
+    max-width: 46rem;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.contact-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact-kicker {
@@ -1719,6 +1725,7 @@ html.js .hero-portrait.is-cinematic .portrait-plate::before {
 .contact-actions {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.75rem;
     margin-top: 2rem;
 }
@@ -1769,55 +1776,98 @@ html.js .hero-portrait.is-cinematic .portrait-plate::before {
     color: #3F4A5F;
 }
 
-.contact-links {
-    border-top: 1px solid var(--invert-rule);
+/* social icon buttons */
+
+.contact-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.9rem 0 0;
+    padding: 0;
+    list-style: none;
 }
 
-.contact-link {
+.contact-social li {
+    display: flex;
+}
+
+.social-btn {
+    position: relative;
     display: grid;
-    grid-template-columns: 5.5rem minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.05rem 0;
-    border-bottom: 1px solid var(--invert-rule);
-    transition: color 0.25s ease, padding-left 0.3s var(--ease);
-}
-
-.contact-link:hover {
-    color: var(--accent-2);
-    padding-left: 0.4rem;
-}
-
-.cl-key {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--invert-rule);
+    background: transparent;
     color: var(--invert-muted);
+    transition: color 0.25s ease, background-color 0.25s ease,
+        transform 0.3s var(--ease), box-shadow 0.3s ease;
 }
 
-.contact-link:hover .cl-key {
-    color: var(--accent-2);
+/* accent gradient border, revealed on hover / keyboard focus */
+.social-btn::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
 }
 
-.cl-val {
-    font-size: 0.88rem;
+.social-btn .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.social-btn .icon--brand {
+    fill: currentColor;
+    stroke: none;
+}
+
+.social-btn:hover,
+.social-btn:focus-visible {
     color: var(--invert-ink);
-    overflow: hidden;
-    text-overflow: ellipsis;
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px -18px rgba(var(--aura-2), 0.85);
+}
+
+.social-btn:hover::before,
+.social-btn:focus-visible::before {
+    opacity: 1;
+}
+
+.social-tip {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    padding: 0.32rem 0.5rem;
+    border: 1px solid var(--invert-rule);
+    background: var(--surface);
+    color: var(--invert-ink);
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
     white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, 4px);
+    transition: opacity 0.2s ease, transform 0.2s var(--ease);
+    pointer-events: none;
 }
 
-.cl-arrow {
-    width: 15px;
-    height: 15px;
-    color: var(--invert-muted);
-    transition: transform 0.3s var(--ease), color 0.25s ease;
-}
-
-.contact-link:hover .cl-arrow {
-    color: var(--accent-2);
-    transform: translate(2px, -2px);
+.social-btn:hover .social-tip,
+.social-btn:focus-visible .social-tip {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 /* ---------- 14. Footer ---------- */
@@ -2269,15 +2319,6 @@ html.js .section-head.is-visible .section-rule {
     transform: scale(0.82);
 }
 
-/* contact links */
-.cl-arrow {
-    transition: transform 0.35s var(--ease);
-}
-
-.contact-link:hover .cl-arrow {
-    transform: translate(2px, -2px);
-}
-
 @media (prefers-reduced-motion: reduce) {
     .hero-grid {
         transform: none;
@@ -2348,10 +2389,6 @@ html.js .section-head.is-visible .section-rule {
     }
 
     .work-detail {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .contact-grid {
         grid-template-columns: minmax(0, 1fr);
     }
 }
@@ -2473,13 +2510,8 @@ html.js .section-head.is-visible .section-rule {
         gap: 0.75rem;
     }
 
-    .contact-link {
-        grid-template-columns: 4.4rem minmax(0, 1fr) auto;
-        gap: 0.75rem;
-    }
-
-    .cl-val {
-        font-size: 0.8rem;
+    .contact-social {
+        gap: 0.6rem;
     }
 
     .site-footer {
