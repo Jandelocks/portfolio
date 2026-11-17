@@ -13,9 +13,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300..600&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap" rel="stylesheet">
 
     <script>
         (function () {
@@ -393,140 +391,52 @@
                     <span class="section-index">03</span>
                     <h2 id="work-title">Selected work</h2>
                     <span class="section-rule" aria-hidden="true"></span>
-                    <span class="section-note">Client, personal &amp; capstone</span>
+                    <span class="section-note">Internship, personal &amp; capstone</span>
                 </div>
 
                 <p class="work-intro reveal">
-                    Six systems I've built or maintained. Each line opens into the brief, my role, the
+                    Four systems I've built or maintained. Each line opens into the brief, my role, the
                     features involved, and the stack behind the work.
                 </p>
 
                 <ol class="work-list" id="work-list">
                     <li class="work-item reveal">
-                        <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-1">
+                        <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-7">
                             <span class="work-num">01</span>
-                            <span class="work-title">ALERT Pinamalayan <span class="work-org">(MDRRMO)</span></span>
+                            <span class="work-title">IMS <span class="work-org">— Incident Management System</span></span>
                             <span class="work-desc">
-                                <span class="work-summary">Disaster response and incident management for citizens and responders</span>
-                                <span class="work-tech">ASP.NET Core 10 MVC · C# · MySQL · .NET MAUI</span>
+                                <span class="work-summary">Structured workflow for incident reporting, assignment and resolution</span>
+                                <span class="work-tech">ASP.NET Core 9 MVC · C# · EF Core · SQL Server · SignalR</span>
                             </span>
                             <span class="work-tag">ITDC</span>
                             <span class="work-plus" aria-hidden="true"></span>
                         </button>
-                        <div class="work-panel" id="work-panel-1">
+                        <div class="work-panel" id="work-panel-7">
                             <div class="work-panel-inner">
                                 <div class="work-detail">
                                     <div class="work-detail-text">
                                         <p class="work-long">
-                                            A full-stack disaster response and incident management system for
-                                            citizens and responders, enabling real-time reporting, emergency
-                                            coordination, and centralized monitoring. Includes a .NET MAUI mobile
-                                            app for citizens alongside the web platform.
+                                            A web-based incident management platform built during my ITDC
+                                            internship, handling incident reports through a structured reporting,
+                                            assignment, and resolution workflow.
                                         </p>
                                         <p class="work-role">
                                             <span>Role</span>
-                                            Bug fixes · Feature enhancements · UI improvements · API integration · QA testing
+                                            Incident submission &amp; tracking workflows · Department-based assignment · SignalR notifications · Reporting &amp; PDF generation · Authentication &amp; password hashing
                                         </p>
                                     </div>
                                     <dl class="spec">
                                         <div>
                                             <dt>Key features</dt>
-                                            <dd>Real-time incident reporting · Responder dispatch · Mobile citizen app · Admin dashboard · API integration</dd>
+                                            <dd>Role-based access (admin, moderator, user) · Incident submission, editing &amp; tracking · Department-based assignment &amp; resolution · Real-time notifications via SignalR · Reporting &amp; PDF generation · Activity logging · Authentication &amp; password hashing</dd>
                                         </div>
                                         <div>
                                             <dt>Stack</dt>
-                                            <dd>ASP.NET Core 10 MVC · C# · MySQL · .NET MAUI</dd>
+                                            <dd>ASP.NET Core 9 MVC · C# · Entity Framework Core · SQL Server · SignalR · Bootstrap · Razor Views</dd>
                                         </div>
                                         <div>
                                             <dt>Technical focus</dt>
-                                            <dd>Shared API integration between the ASP.NET Core web platform and the .NET MAUI citizen app, with incident reporting feeding a centralized monitoring dashboard.</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="work-item reveal">
-                        <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-2">
-                            <span class="work-num">02</span>
-                            <span class="work-title">PKPOS <span class="work-org">— Pocket King Point of Sale</span></span>
-                            <span class="work-desc">
-                                <span class="work-summary">Point-of-sale for restaurant and billiard operations</span>
-                                <span class="work-tech">ASP.NET Core MVC · C# · MySQL</span>
-                            </span>
-                            <span class="work-tag">ITDC</span>
-                            <span class="work-plus" aria-hidden="true"></span>
-                        </button>
-                        <div class="work-panel" id="work-panel-2">
-                            <div class="work-panel-inner">
-                                <div class="work-detail">
-                                    <div class="work-detail-text">
-                                        <p class="work-long">
-                                            A point-of-sale system built for restaurant and billiard operations,
-                                            handling orders, promos, reporting, and real-time shift management.
-                                        </p>
-                                        <p class="work-role">
-                                            <span>Role</span>
-                                            POS feature development · Promo management · Bug fixes · UX improvements · Reporting
-                                        </p>
-                                    </div>
-                                    <dl class="spec">
-                                        <div>
-                                            <dt>Key features</dt>
-                                            <dd>POS order management · Promo management · Shift &amp; session control · Reporting · Kitchen &amp; bar routing</dd>
-                                        </div>
-                                        <div>
-                                            <dt>Stack</dt>
-                                            <dd>ASP.NET Core MVC · C# · MySQL</dd>
-                                        </div>
-                                        <div>
-                                            <dt>Technical focus</dt>
-                                            <dd>Shift and session control for live service, with orders routed to kitchen and bar stations and reported back through the admin side.</dd>
-                                        </div>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="work-item reveal">
-                        <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-3">
-                            <span class="work-num">03</span>
-                            <span class="work-title">City Kiosk <span class="work-org">Management System</span></span>
-                            <span class="work-desc">
-                                <span class="work-summary">Citizen-facing kiosk and admin platform for LGU services</span>
-                                <span class="work-tech">ASP.NET Core 10 MVC · C# · MySQL</span>
-                            </span>
-                            <span class="work-tag">ITDC</span>
-                            <span class="work-plus" aria-hidden="true"></span>
-                        </button>
-                        <div class="work-panel" id="work-panel-3">
-                            <div class="work-panel-inner">
-                                <div class="work-detail">
-                                    <div class="work-detail-text">
-                                        <p class="work-long">
-                                            A citizen-facing kiosk and administrative management system for LGU
-                                            public services, streamlining transactions and improving service
-                                            delivery.
-                                        </p>
-                                        <p class="work-role">
-                                            <span>Role</span>
-                                            Citizen portal enhancements · Admin features · Bug resolution · Performance improvements
-                                        </p>
-                                    </div>
-                                    <dl class="spec">
-                                        <div>
-                                            <dt>Key features</dt>
-                                            <dd>Citizen portal · Admin management · Kiosk-integrated UI · Service request tracking · Reporting</dd>
-                                        </div>
-                                        <div>
-                                            <dt>Stack</dt>
-                                            <dd>ASP.NET Core 10 MVC · C# · MySQL</dd>
-                                        </div>
-                                        <div>
-                                            <dt>Technical focus</dt>
-                                            <dd>A kiosk-oriented citizen interface paired with an administrative console, with service request tracking shared across both views.</dd>
+                                            <dd>Department-based incident assignment driving a reporting-to-resolution workflow, with SignalR pushing real-time notifications and role-based access separating administrator, moderator and user capabilities.</dd>
                                         </div>
                                     </dl>
                                 </div>
@@ -536,7 +446,7 @@
 
                     <li class="work-item reveal">
                         <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-4">
-                            <span class="work-num">04</span>
+                            <span class="work-num">02</span>
                             <span class="work-title">LoanTayo <span class="work-org">— Loan Management System</span></span>
                             <span class="work-desc">
                                 <span class="work-summary">Loan processing, payments, interest and reporting</span>
@@ -580,7 +490,7 @@
 
                     <li class="work-item reveal">
                         <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-5">
-                            <span class="work-num">05</span>
+                            <span class="work-num">03</span>
                             <span class="work-title">SaveTrack <span class="work-org">— Savings Tracker</span></span>
                             <span class="work-desc">
                                 <span class="work-summary">Wallets, savings goals and milestones with an audit trail</span>
@@ -624,7 +534,7 @@
 
                     <li class="work-item reveal">
                         <button class="work-toggle" type="button" aria-expanded="false" aria-controls="work-panel-6">
-                            <span class="work-num">06</span>
+                            <span class="work-num">04</span>
                             <span class="work-title">eLIFESURE <span class="work-org">Mimaropa</span></span>
                             <span class="work-desc">
                                 <span class="work-summary">Insurance and emergency assistance platform — capstone</span>

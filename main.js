@@ -116,6 +116,9 @@
                 unlockScroll();
                 try { sessionStorage.setItem('preloader-seen', '1'); } catch (e) { /* storage blocked */ }
                 initReveals();
+
+                /* Honour a deep link that was queued while scrolling was locked. */
+                restoreHashPosition();
             }, 500);
         }, 250);
     }
@@ -335,11 +338,15 @@
        --------------------------------------------------------------------- */
 
     var revealItems = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var portraitFigure = document.querySelector('.hero-portrait');
     var revealsReady = false;
 
     function initReveals() {
         if (revealsReady) return;
         revealsReady = true;
+
+        /* The portrait reveal is a one-shot entrance, not a scroll replay. */
+        if (portraitFigure) portraitFigure.classList.add('is-cinematic');
 
         if ('IntersectionObserver' in window && !reduceMotion.matches) {
             revealItems.forEach(function (el) {
@@ -363,7 +370,16 @@
         }
     }
 
-    if (!preloaderActive) initReveals();
+    function restoreHashPosition() {
+        if (window.location.hash.length < 2) return;
+        var target = document.getElementById(window.location.hash.slice(1));
+        if (target) window.setTimeout(function () { target.scrollIntoView({ behavior: 'instant' }); }, 40);
+    }
+
+    if (!preloaderActive) {
+        initReveals();
+        restoreHashPosition();
+    }
 
     /* ---------------------------------------------------------------------
        Cursor aura
