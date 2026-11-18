@@ -94,10 +94,11 @@
 
             <nav class="site-nav" aria-label="Sections">
                 <a href="#profile" data-nav="profile"><span>01</span>Profile</a>
-                <a href="#stack" data-nav="stack"><span>02</span>Stack</a>
-                <a href="#work" data-nav="work"><span>03</span>Work</a>
-                <a href="#trajectory" data-nav="trajectory"><span>04</span>Experience</a>
-                <a href="#contact" data-nav="contact"><span>05</span>Contact</a>
+                <a href="#skills" data-nav="skills"><span>02</span>Skills</a>
+                <a href="#stack" data-nav="stack"><span>03</span>Stack</a>
+                <a href="#work" data-nav="work"><span>04</span>Work</a>
+                <a href="#trajectory" data-nav="trajectory"><span>05</span>Experience</a>
+                <a href="#contact" data-nav="contact"><span>06</span>Contact</a>
             </nav>
 
             <div class="header-tools">
@@ -113,10 +114,11 @@
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
         <nav class="mobile-nav" aria-label="Mobile sections">
             <a href="#profile"><span>01</span>Profile</a>
-            <a href="#stack"><span>02</span>Stack</a>
-            <a href="#work"><span>03</span>Work</a>
-            <a href="#trajectory"><span>04</span>Experience</a>
-            <a href="#contact"><span>05</span>Contact</a>
+            <a href="#skills"><span>02</span>Skills</a>
+            <a href="#stack"><span>03</span>Stack</a>
+            <a href="#work"><span>04</span>Work</a>
+            <a href="#trajectory"><span>05</span>Experience</a>
+            <a href="#contact"><span>06</span>Contact</a>
         </nav>
         <div class="mobile-menu-foot">
             <a href="mailto:jandeleido@gmail.com">jandeleido@gmail.com</a>
@@ -132,12 +134,21 @@
                     <p class="eyebrow reveal">
                         <span class="status-dot" aria-hidden="true"></span>
                         Software Engineer <span class="sep">/</span> Calapan City, PH
+                        <span class="eyebrow-aside">
+                            <span class="sep">/</span> <span id="clock">--:--</span> PHT
+                        </span>
                     </p>
 
                     <h1 class="hero-name reveal" id="hero-title">
                         Jandel L.<br>
                         <em>Escalera</em>
                     </h1>
+
+                    <p class="hero-role reveal">
+                        <span class="hero-role-label">Currently</span>
+                        Software Engineer at ITDC Systems Development
+                        <span class="hero-role-since">May 2025 — present</span>
+                    </p>
 
                     <p class="hero-lead reveal">
                         Full-stack .NET engineer specializing in enterprise web applications, REST APIs, database-driven systems, and cross-platform mobile development.
@@ -169,25 +180,73 @@
                             <span>Calapan City · PH</span>
                         </figcaption>
                     </figure>
+                </div>
 
-                    <aside class="hero-meta reveal" aria-label="Current status">
-                    <div class="meta-row">
-                        <span class="meta-key">Status</span>
-                        <span class="meta-val">Software Engineer<br><span class="meta-sub">ITDC Systems Development</span></span>
-                    </div>
-                    <div class="meta-row">
-                        <span class="meta-key">Since</span>
-                        <span class="meta-val">May 2025 <span class="meta-sub">— present</span></span>
-                    </div>
-                    <div class="meta-row">
-                        <span class="meta-key">Focus</span>
-                        <span class="meta-val">ASP.NET Core MVC<br><span class="meta-sub">.NET MAUI · SQL Server · MySQL</span></span>
-                    </div>
-                    <div class="meta-row">
-                        <span class="meta-key">Local time</span>
-                        <span class="meta-val"><span id="clock">--:--</span> <span class="meta-sub">PHT · GMT+8</span></span>
-                    </div>
-                    </aside>
+                <div class="hero-brief reveal">
+                    <section class="brief-col" aria-labelledby="brief-work-title">
+                        <h2 class="brief-title" id="brief-work-title">Selected work</h2>
+                        <ul class="brief-work">
+                            <li>
+                                <a href="#work">
+                                    <span class="brief-num">01</span>
+                                    <span class="brief-name">IMS</span>
+                                    <span class="brief-meta">Incident management</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#work">
+                                    <span class="brief-num">02</span>
+                                    <span class="brief-name">LoanTayo</span>
+                                    <span class="brief-meta">Loan management</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#work">
+                                    <span class="brief-num">03</span>
+                                    <span class="brief-name">SaveTrack</span>
+                                    <span class="brief-meta">Savings tracker</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#work">
+                                    <span class="brief-num">04</span>
+                                    <span class="brief-name">eLIFESURE</span>
+                                    <span class="brief-meta">Insurance platform</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="brief-col" aria-labelledby="brief-stack-title">
+                        <h2 class="brief-title" id="brief-stack-title">Core stack</h2>
+                        <ul class="tags brief-tags">
+                            <li>ASP.NET Core</li>
+                            <li>C#</li>
+                            <li>EF Core</li>
+                            <li>.NET MAUI</li>
+                            <li>PHP</li>
+                            <li>SQL Server</li>
+                            <li>MySQL</li>
+                            <li>REST APIs</li>
+                        </ul>
+                    </section>
+
+                    <section class="brief-col" aria-labelledby="brief-contact-title">
+                        <h2 class="brief-title" id="brief-contact-title">Contact</h2>
+                        <ul class="brief-contact">
+                            <li>
+                                <a href="mailto:jandeleido@gmail.com">jandeleido@gmail.com</a>
+                            </li>
+                            <li>
+                                <a href="tel:+639945428697">+63 994 542 8697</a>
+                            </li>
+                            <li class="brief-social">
+                                <a href="https://github.com/Jandelocks" target="_blank" rel="noopener">GitHub</a>
+                                <a href="https://www.linkedin.com/in/jandel-l-escalera-445440364" target="_blank"
+                                    rel="noopener">LinkedIn</a>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
             </div>
         </section>
@@ -302,14 +361,107 @@
             </div>
         </section>
 
-        <!-- ============ 02 STACK ============ -->
-        <section class="section section--tint" id="stack" aria-labelledby="stack-title">
+        <!-- ============ 02 SKILLS ============ -->
+        <section class="section section--seam" id="skills" aria-labelledby="skills-title">
             <div class="wrap">
                 <div class="section-head reveal">
                     <span class="section-index">02</span>
+                    <h2 id="skills-title">Skills</h2>
+                    <span class="section-rule" aria-hidden="true"></span>
+                    <span class="section-note">Full inventory</span>
+                </div>
+
+                <div class="skill-grid reveal">
+                    <section class="skill-card skill-card--languages" aria-labelledby="skills-languages">
+                        <div class="skill-card-head">
+                            <h3 id="skills-languages">Programming languages</h3>
+                            <span class="skill-count">06</span>
+                        </div>
+                        <ul class="tags skill-tags">
+                            <li>C#</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>SQL</li>
+                        </ul>
+                    </section>
+
+                    <section class="skill-card skill-card--frameworks" aria-labelledby="skills-frameworks">
+                        <div class="skill-card-head">
+                            <h3 id="skills-frameworks">Frameworks &amp; technologies</h3>
+                            <span class="skill-count">10</span>
+                        </div>
+                        <ul class="tags skill-tags">
+                            <li>ASP.NET Core MVC</li>
+                            <li>ASP.NET Core Web API</li>
+                            <li>.NET MAUI</li>
+                            <li>CodeIgniter</li>
+                            <li>Entity Framework Core</li>
+                            <li>RESTful APIs</li>
+                            <li>Bootstrap</li>
+                            <li>jQuery</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                        </ul>
+                    </section>
+
+                    <section class="skill-card" aria-labelledby="skills-databases">
+                        <div class="skill-card-head">
+                            <h3 id="skills-databases">Database management</h3>
+                            <span class="skill-count">02</span>
+                        </div>
+                        <ul class="tags skill-tags">
+                            <li>Microsoft SQL Server</li>
+                            <li>MySQL</li>
+                        </ul>
+                    </section>
+
+                    <section class="skill-card" aria-labelledby="skills-tools">
+                        <div class="skill-card-head">
+                            <h3 id="skills-tools">Tools &amp; platforms</h3>
+                            <span class="skill-count">08</span>
+                        </div>
+                        <ul class="tags skill-tags">
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>Visual Studio</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                            <li>SSMS</li>
+                            <li>MySQL Workbench</li>
+                            <li>Swagger</li>
+                        </ul>
+                    </section>
+
+                    <section class="skill-card" aria-labelledby="skills-other">
+                        <div class="skill-card-head">
+                            <h3 id="skills-other">Other skills</h3>
+                            <span class="skill-count">08</span>
+                        </div>
+                        <ul class="tags skill-tags">
+                            <li>MVC architecture</li>
+                            <li>LINQ</li>
+                            <li>Dependency injection</li>
+                            <li>Authentication &amp; authorization</li>
+                            <li>QA testing</li>
+                            <li>Debugging</li>
+                            <li>Deployment</li>
+                            <li>Agile development</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 03 STACK ============ -->
+        <section class="section section--tint" id="stack" aria-labelledby="stack-title">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="section-index">03</span>
                     <h2 id="stack-title">Technical range</h2>
                     <span class="section-rule" aria-hidden="true"></span>
-                    <span class="section-note">Six areas of practice</span>
+                    <span class="section-note">How the skills are applied</span>
                 </div>
 
                 <div class="stack-list reveal">
@@ -317,10 +469,11 @@
                         <span class="stack-num">01</span>
                         <h3>Backend</h3>
                         <ul class="tags">
-                            <li>ASP.NET Core MVC</li>
-                            <li>C# &amp; .NET Ecosystem</li>
-                            <li>RESTful API Development</li>
-                            <li>Web API Integration</li>
+                            <li>ASP.NET Core MVC &amp; Web API</li>
+                            <li>MVC application structure</li>
+                            <li>RESTful API integration</li>
+                            <li>Business workflow logic</li>
+                            <li>Reporting &amp; exports</li>
                         </ul>
                     </div>
                     <div class="stack-row">
@@ -328,62 +481,60 @@
                         <h3>Mobile</h3>
                         <ul class="tags">
                             <li>.NET MAUI</li>
-                            <li>Cross-Platform Apps</li>
-                            <li>iOS &amp; Android</li>
-                            <li>Mobile-First Design</li>
+                            <li>Cross-platform delivery</li>
+                            <li>API-connected app features</li>
+                            <li>Android &amp; iOS builds</li>
                         </ul>
                     </div>
                     <div class="stack-row">
                         <span class="stack-num">03</span>
                         <h3>Data</h3>
                         <ul class="tags">
-                            <li>Microsoft SQL Server</li>
-                            <li>MySQL</li>
-                            <li>EF Core</li>
-                            <li>Database Design</li>
-                            <li>Query Optimization</li>
+                            <li>Relational schema design</li>
+                            <li>EF Core modelling &amp; migrations</li>
+                            <li>Query optimization</li>
+                            <li>Reporting queries</li>
                         </ul>
                     </div>
                     <div class="stack-row">
                         <span class="stack-num">04</span>
                         <h3>Frontend</h3>
                         <ul class="tags">
-                            <li>HTML5 &amp; CSS3</li>
-                            <li>Bootstrap</li>
-                            <li>JavaScript &amp; jQuery</li>
-                            <li>Responsive Design</li>
+                            <li>Razor views</li>
+                            <li>Bootstrap layouts</li>
+                            <li>jQuery interactions</li>
+                            <li>Responsive refinement</li>
                         </ul>
                     </div>
                     <div class="stack-row">
                         <span class="stack-num">05</span>
-                        <h3>Tools</h3>
+                        <h3>Delivery</h3>
                         <ul class="tags">
-                            <li>Visual Studio</li>
-                            <li>VS Code</li>
-                            <li>Git &amp; GitHub</li>
-                            <li>MySQL Workbench</li>
-                            <li>SSMS</li>
+                            <li>Git workflow</li>
+                            <li>API testing (Postman, Swagger)</li>
+                            <li>Deployment support</li>
+                            <li>Client demos &amp; training</li>
                         </ul>
                     </div>
                     <div class="stack-row">
                         <span class="stack-num">06</span>
                         <h3>QA &amp; performance</h3>
                         <ul class="tags">
-                            <li>Quality Assurance Testing</li>
-                            <li>UI/UX Optimization</li>
-                            <li>Web Debugging</li>
-                            <li>Performance Tuning</li>
+                            <li>QA testing</li>
+                            <li>Debugging &amp; troubleshooting</li>
+                            <li>Performance tuning</li>
+                            <li>UI/UX refinement</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ 03 WORK ============ -->
+        <!-- ============ 04 WORK ============ -->
         <section class="section" id="work" aria-labelledby="work-title">
             <div class="wrap">
                 <div class="section-head reveal">
-                    <span class="section-index">03</span>
+                    <span class="section-index">04</span>
                     <h2 id="work-title">Selected work</h2>
                     <span class="section-rule" aria-hidden="true"></span>
                     <span class="section-note">Internship, personal &amp; capstone</span>
@@ -574,14 +725,14 @@
             </div>
         </section>
 
-        <!-- ============ 04 EXPERIENCE ============ -->
+        <!-- ============ 05 EXPERIENCE ============ -->
         <section class="section section--tint" id="trajectory" aria-labelledby="trajectory-title">
             <div class="wrap">
                 <div class="section-head reveal">
-                    <span class="section-index">04</span>
+                    <span class="section-index">05</span>
                     <h2 id="trajectory-title">Experience</h2>
                     <span class="section-rule" aria-hidden="true"></span>
-                    <span class="section-note">Same employer, two roles</span>
+                    <span class="section-note">Intern to full-time, plus freelance</span>
                 </div>
 
                 <div class="timeline">
@@ -597,7 +748,7 @@
                                 <li>Develop and maintain web and mobile applications with full-stack features.</li>
                                 <li>Build cross-platform .NET MAUI applications integrated with ASP.NET backends via Web API.</li>
                                 <li>Implement new features, fix bugs, and optimize performance for client projects.</li>
-                                <li>Provide client support and training for deployed systems.</li>
+                                <li>Support deployed systems with client demonstrations, training, and deployment rollouts.</li>
                                 <li>Collaborate on system design, project planning, and QA testing.</li>
                             </ul>
                             <dl class="tl-spec">
@@ -608,6 +759,28 @@
                                 <div>
                                     <dt>Stack</dt>
                                     <dd>C# · ASP.NET Core MVC · .NET MAUI · Web API · SQL Server · MySQL · Bootstrap · jQuery · Git</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+
+                    <article class="tl-item tl-item--secondary reveal">
+                        <div class="tl-date">
+                            <span class="tl-period">2024 — Present</span>
+                            <span class="tl-tag">Project-based</span>
+                        </div>
+                        <div class="tl-body">
+                            <h3 class="tl-company">Self-Employed</h3>
+                            <p class="tl-role">Freelance Software Developer</p>
+                            <ul class="tl-list">
+                                <li>Develop full-stack web applications using ASP.NET Core MVC, C#, SQL Server/MySQL, and JavaScript.</li>
+                                <li>Design RESTful APIs, database structures, authentication, and role-based access control.</li>
+                                <li>Handle frontend development, debugging, testing, deployment support, and continuous improvements based on project requirements.</li>
+                            </ul>
+                            <dl class="tl-spec">
+                                <div>
+                                    <dt>Stack</dt>
+                                    <dd>C# · ASP.NET Core MVC · SQL Server · MySQL · JavaScript</dd>
                                 </div>
                             </dl>
                         </div>
@@ -624,7 +797,7 @@
                                 <li>Completed a 3-month internship as a full-stack web and application developer.</li>
                                 <li>Developed an Incident Management System using ASP.NET Core MVC, CSS/Bootstrap, and SSMS.</li>
                                 <li>Performed QA testing on real-world projects and assisted in debugging.</li>
-                                <li>Received an employment offer at the end of the internship.</li>
+                                <li>Received an employment offer and transitioned to full-time at the end of the internship.</li>
                             </ul>
                             <dl class="tl-spec">
                                 <div>
@@ -656,12 +829,12 @@
             </div>
         </section>
 
-        <!-- ============ 05 CONTACT ============ -->
+        <!-- ============ 06 CONTACT ============ -->
         <section class="contact" id="contact" aria-labelledby="contact-title">
             <div class="wrap">
                 <div class="contact-grid">
                     <div class="contact-main reveal">
-                        <p class="contact-kicker"><span>05</span> Contact</p>
+                        <p class="contact-kicker"><span>06</span> Contact</p>
                         <h2 class="contact-title" id="contact-title">Let's build something that <em>holds.</em></h2>
                         <p class="contact-lead">
                             Open to conversations about enterprise development, LGU digital solutions, and
